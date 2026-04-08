@@ -1,0 +1,2004 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fondo de Asistencia Laboral · Cohen ALyC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════
+   RESET & BASE
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: #fff;
+  color: #1a1a1a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { display: block; max-width: 100%; }
+a { text-decoration: none; color: inherit; }
+
+/* ═══════════════════════════════════════════════
+   TOKENS COHEN
+═══════════════════════════════════════════════ */
+:root {
+  --bordeaux:       #a62249;
+  --bordeaux-dark:  #7a1835;
+  --bordeaux-mid:   #ba2e5f;
+  --bordeaux-light: #f5e8ed;
+  --bordeaux-pale:  #fdf4f7;
+  --grey:           #636569;
+  --grey-light:     #888b8d;
+  --grey-pale:      #d4d3ce;
+  --beige:          #c1c0b8;
+  --beige-light:    #f2f1ed;
+  --beige-pale:     #f8f7f4;
+  --black:          #1a1a1a;
+  --white:          #ffffff;
+
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-body:    'Montserrat', sans-serif;
+
+  --container:    1080px;
+  --container-sm: 760px;
+  --section-v:    100px;
+  --section-v-sm: 60px;
+}
+
+/* ═══════════════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════════════ */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.container-sm {
+  max-width: var(--container-sm);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  margin-bottom: 20px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: var(--bordeaux);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  flex-shrink: 0;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--bordeaux);
+}
+.section-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.8;
+  max-width: 580px;
+}
+.divider {
+  height: 1px;
+  background: var(--beige);
+  margin: 0;
+}
+.tag {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  border: 1px solid var(--bordeaux);
+  padding: 4px 10px;
+}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--beige);
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.nav-logo svg {
+  width: 28px;
+  height: 28px;
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--grey);
+  letter-spacing: 0.5px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--grey);
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--bordeaux); }
+.nav-cta {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white) !important;
+  background: var(--bordeaux);
+  padding: 10px 20px;
+  transition: background 0.2s !important;
+}
+.nav-cta:hover { background: var(--bordeaux-dark) !important; color: var(--white) !important; }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+#hero {
+  padding-top: 64px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+.hero-left {
+  padding: 80px 60px 80px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-right: 1px solid var(--beige);
+}
+.hero-left .eyebrow { margin-bottom: 28px; }
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 400;
+  line-height: 1.05;
+  color: var(--black);
+  margin-bottom: 28px;
+  letter-spacing: -0.5px;
+}
+.hero-h1 em {
+  font-style: italic;
+  color: var(--bordeaux);
+}
+.hero-sub {
+  font-size: 15px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.8;
+  max-width: 440px;
+  margin-bottom: 44px;
+}
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--bordeaux);
+  color: var(--white);
+  padding: 15px 36px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 2px solid var(--bordeaux);
+}
+.btn-primary:hover { background: var(--bordeaux-dark); border-color: var(--bordeaux-dark); }
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--bordeaux);
+  padding: 13px 28px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid var(--bordeaux);
+  transition: all 0.2s;
+}
+.btn-outline:hover { background: var(--bordeaux); color: var(--white); }
+.btn-text {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  border-bottom: 1px solid var(--bordeaux);
+  padding-bottom: 2px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.btn-text:hover { opacity: 0.7; }
+.hero-badge {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--beige);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  color: var(--grey-light);
+}
+.hero-badge span { color: var(--grey); font-weight: 600; }
+
+.hero-right {
+  background: var(--beige-light);
+  border-left: 1px solid var(--beige);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 50px;
+  min-height: 600px;
+  gap: 32px;
+}
+.hero-right-intro {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 8px;
+}
+.hero-right-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  margin-bottom: 14px;
+}
+.hero-right-title {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  color: var(--black);
+  line-height: 1.3;
+  font-weight: 400;
+}
+.hero-right-title em {
+  font-style: italic;
+  color: #ba2e5f;
+}
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(166,34,73,0.05) 0%, transparent 60%),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(193,192,184,0.25) 40px,
+      rgba(193,192,184,0.25) 41px
+    );
+}
+.hero-big-number {
+  font-family: var(--font-display);
+  font-size: clamp(80px, 12vw, 160px);
+  font-weight: 400;
+  color: rgba(166,34,73,0.07);
+  line-height: 1;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  letter-spacing: -6px;
+  user-select: none;
+  pointer-events: none;
+}
+.hero-stats {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.hero-stat {
+  background: var(--white);
+  padding: 24px 22px;
+  border: 1px solid var(--beige);
+}
+.hero-stat-value {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--black);
+  display: block;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hero-stat-value.red { color: var(--bordeaux-mid); }
+.hero-stat-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--grey-light);
+}
+.hero-stat-sub {
+  font-size: 10px;
+  color: var(--beige);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════════════
+   ALERT BAR
+═══════════════════════════════════════════════ */
+.alert-bar {
+  background: var(--beige-light);
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.alert-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--bordeaux);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.alert-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--grey);
+  letter-spacing: 0.3px;
+}
+.alert-text strong { color: var(--black); }
+.alert-link {
+  margin-left: auto;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  flex-shrink: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 2 — ¿QUÉ ES EL FAL?
+═══════════════════════════════════════════════ */
+#que-es {
+  padding: var(--section-v) 0;
+  background: var(--white);
+}
+.que-es-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.que-es-visual {
+  position: relative;
+}
+.que-es-box {
+  background: var(--bordeaux);
+  padding: 48px 40px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.que-es-box::before {
+  content: 'FAL';
+  font-family: var(--font-display);
+  font-size: 120px;
+  font-weight: 400;
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+  user-select: none;
+}
+.que-es-box-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+.que-es-box-num {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.que-es-box-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.que-es-accent {
+  height: 4px;
+  background: var(--bordeaux);
+  width: 60px;
+  margin: 32px 0 0 0;
+  display: block;
+}
+.que-es-features {
+  display: grid;
+  gap: 0;
+  margin-top: 32px;
+}
+.que-es-feature {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--beige);
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.que-es-feature:first-child { border-top: 1px solid var(--beige); }
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--bordeaux);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.feature-icon svg { width: 14px; height: 14px; stroke: var(--bordeaux); fill: none; stroke-width: 1.5; }
+.feature-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--black);
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.feature-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 3 — APORTES
+═══════════════════════════════════════════════ */
+#aportes {
+  padding: var(--section-v) 0;
+  background: var(--black);
+  color: var(--white);
+}
+.aportes-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.aportes-left .eyebrow { color: rgba(255,255,255,0.4); }
+.aportes-left .eyebrow::before { background: rgba(255,255,255,0.4); }
+.aportes-left .section-title { color: var(--white); }
+.aportes-left .section-body { color: rgba(255,255,255,0.5); }
+.aportes-callout {
+  margin-top: 36px;
+  padding: 24px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(166,34,73,0.12);
+  border-left: 3px solid var(--bordeaux-mid);
+}
+.aportes-callout p {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+}
+.aportes-callout p strong { color: var(--white); font-weight: 600; }
+
+.aportes-cards {
+  display: grid;
+  gap: 2px;
+}
+.aporte-card {
+  padding: 32px 28px;
+  border: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.aporte-card:hover { border-color: rgba(166,34,73,0.5); }
+.aporte-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--bordeaux);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.aporte-card:hover::after { opacity: 1; }
+.aporte-tipo {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 14px;
+}
+.aporte-numero {
+  font-family: var(--font-display);
+  font-size: 72px;
+  color: var(--bordeaux-mid);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.aporte-numero span {
+  font-size: 32px;
+  vertical-align: super;
+  margin-left: -6px;
+}
+.aporte-desc {
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+.aporte-max {
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.aporte-max strong { color: rgba(255,255,255,0.5); }
+.aporte-cero {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--bordeaux-mid);
+  border: 1px solid rgba(166,34,73,0.4);
+  padding: 3px 10px;
+}
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 4 — CALCULADORA
+═══════════════════════════════════════════════ */
+#calculadora {
+  padding: var(--section-v) 0;
+  background: var(--beige-pale);
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+}
+.calc-header {
+  text-align: center;
+  margin-bottom: 56px;
+}
+.calc-header .section-body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* CALC WIDGET */
+.calc-widget {
+  background: var(--white);
+  border: 1px solid var(--beige);
+  overflow: hidden;
+}
+.calc-top {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--beige);
+}
+.calc-input-block {
+  padding: 28px 28px;
+  border-right: 1px solid var(--beige);
+}
+.calc-input-block:last-child { border-right: none; }
+.calc-input-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  display: block;
+  margin-bottom: 14px;
+}
+/* tipo toggle */
+.tipo-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1.5px solid var(--beige);
+}
+.tipo-btn {
+  padding: 10px 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey);
+  transition: all 0.2s;
+  text-align: center;
+  line-height: 1.3;
+}
+.tipo-btn + .tipo-btn { border-left: 1.5px solid var(--beige); }
+.tipo-btn.active { background: var(--bordeaux); color: var(--white); }
+.tipo-pct { display: block; font-family: var(--font-display); font-size: 24px; letter-spacing: 0; text-transform: none; font-weight: 400; margin-top: 2px; }
+
+/* salario input */
+.input-wrap { position: relative; }
+.input-prefix { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-family: var(--font-display); font-size: 16px; color: var(--bordeaux); pointer-events: none; }
+input[type="number"] {
+  width: 100%; border: 1.5px solid var(--beige); background: var(--white);
+  padding: 11px 12px 11px 26px; font-family: var(--font-body); font-size: 15px;
+  font-weight: 500; color: var(--black); outline: none; transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
+input[type="number"]:focus { border-color: var(--bordeaux); }
+.input-hint { font-size: 10px; color: var(--grey-light); margin-top: 6px; line-height: 1.5; }
+
+/* perfil */
+.perfil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.perfil-btn {
+  border: 1.5px solid var(--beige); background: var(--white);
+  padding: 12px 6px; cursor: pointer; text-align: center; transition: all 0.2s;
+}
+.perfil-btn.active { border-color: var(--bordeaux); background: var(--bordeaux-pale); }
+.perfil-nombre { display: block; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); transition: color 0.2s; }
+.perfil-btn.active .perfil-nombre { color: var(--bordeaux); }
+.perfil-tna { display: block; font-family: var(--font-display); font-size: 18px; color: var(--bordeaux); margin: 3px 0; }
+.perfil-desc { display: block; font-size: 9px; color: var(--grey-light); }
+
+/* plazo */
+.plazo-val { font-family: var(--font-display); font-size: 36px; color: var(--bordeaux); margin-bottom: 8px; }
+.plazo-val span { font-family: var(--font-body); font-size: 13px; color: var(--grey); margin-left: 4px; }
+input[type="range"] {
+  width: 100%; -webkit-appearance: none; height: 2px;
+  background: var(--beige); outline: none; cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 14px; height: 14px;
+  background: var(--bordeaux); border-radius: 50%; cursor: pointer; transition: transform 0.15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover { transform: scale(1.3); }
+.plazo-labels { display: flex; justify-content: space-between; margin-top: 6px; font-size: 9px; color: var(--grey-light); }
+
+/* resultados */
+.calc-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--beige);
+}
+.res-block {
+  padding: 28px 28px;
+  border-right: 1px solid var(--beige);
+  position: relative;
+}
+.res-block:last-child { border-right: none; }
+.res-block.highlight { background: var(--bordeaux-pale); }
+.res-block.highlight::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--bordeaux);
+}
+.res-label { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--grey-light); display: block; margin-bottom: 10px; }
+.res-value { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); color: var(--bordeaux); display: block; line-height: 1; margin-bottom: 4px; }
+.res-value.dark { color: var(--black); }
+.res-sub { font-size: 10px; color: var(--grey-light); }
+
+/* comparativa + cobertura */
+.calc-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--beige);
+}
+.calc-bottom-block {
+  padding: 28px 28px;
+  border-right: 1px solid var(--beige);
+}
+.calc-bottom-block:last-child { border-right: none; }
+.calc-block-title { font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--grey-light); margin-bottom: 20px; }
+
+.comp-row { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+.comp-row:last-child { margin-bottom: 0; }
+.comp-label { font-size: 10px; font-weight: 500; color: var(--grey); width: 150px; flex-shrink: 0; }
+.comp-bar-wrap { flex: 1; height: 6px; background: var(--beige-light); }
+.comp-bar { height: 100%; transition: width 0.6s cubic-bezier(.4,0,.2,1); }
+.comp-bar.red { background: var(--bordeaux); }
+.comp-bar.grey { background: var(--beige); }
+.comp-val { font-family: var(--font-display); font-size: 14px; color: var(--black); width: 90px; text-align: right; flex-shrink: 0; }
+
+.cob-row { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+.cob-text { font-size: 11px; font-weight: 500; color: var(--grey); }
+.cob-pct { font-family: var(--font-display); font-size: 28px; color: var(--bordeaux); }
+.cob-bar-wrap { height: 6px; background: var(--beige-light); border: 1px solid var(--beige); margin-bottom: 8px; }
+.cob-bar { height: 100%; background: var(--bordeaux); transition: width 0.6s cubic-bezier(.4,0,.2,1); }
+.cob-note { font-size: 10px; color: var(--grey-light); line-height: 1.6; }
+
+/* disclaimer */
+.calc-disclaimer {
+  padding: 16px 28px;
+  background: var(--beige-pale);
+  border-top: 1px solid var(--beige);
+  font-size: 10px;
+  color: var(--grey-light);
+  line-height: 1.7;
+}
+.calc-disclaimer strong { color: var(--grey); }
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 5 — COBERTURA
+═══════════════════════════════════════════════ */
+#cobertura {
+  padding: var(--section-v) 0;
+  background: var(--white);
+}
+.cobertura-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 60px;
+}
+.cobertura-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--beige);
+}
+.cobertura-item {
+  padding: 28px 24px;
+  border-right: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+}
+.cobertura-item:nth-child(3n) { border-right: none; }
+.cobertura-item:nth-last-child(-n+3) { border-bottom: none; }
+.cobertura-check {
+  width: 20px; height: 20px;
+  background: var(--bordeaux);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 12px;
+}
+.cobertura-check svg { width: 10px; height: 10px; stroke: #fff; fill: none; stroke-width: 2.5; }
+.cobertura-item-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--black); margin-bottom: 4px;
+}
+.cobertura-item-art {
+  font-size: 9px; color: var(--grey-light); font-weight: 500; letter-spacing: 0.5px;
+}
+.cobertura-nota {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--beige-pale);
+  border: 1px solid var(--beige);
+  border-left: 3px solid var(--bordeaux);
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+}
+.cobertura-nota strong { color: var(--black); font-weight: 600; }
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 6 — CÓMO FUNCIONA
+═══════════════════════════════════════════════ */
+#como-funciona {
+  padding: var(--section-v) 0;
+  background: var(--beige-pale);
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  border: 1px solid var(--beige);
+}
+.step {
+  padding: 36px 28px;
+  border-right: 1px solid var(--beige);
+  position: relative;
+}
+.step:last-child { border-right: none; }
+.step-num {
+  font-family: var(--font-display);
+  font-size: 64px;
+  color: var(--bordeaux);
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+.step-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.step-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+}
+.step-arrow {
+  position: absolute;
+  top: 36px;
+  right: -12px;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  background: var(--white);
+  border: 1px solid var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.step-arrow svg { width: 10px; height: 10px; stroke: var(--bordeaux); fill: none; stroke-width: 2; }
+.step:last-child .step-arrow { display: none; }
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 7 — TIMELINE ESTADO ACTUAL
+═══════════════════════════════════════════════ */
+#timeline {
+  padding: var(--section-v) 0;
+  background: var(--black);
+  color: var(--white);
+}
+.timeline-inner {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.timeline-left .eyebrow { color: rgba(255,255,255,0.35); }
+.timeline-left .eyebrow::before { background: rgba(255,255,255,0.35); }
+.timeline-left .section-title { color: var(--white); }
+.timeline-left .section-body { color: rgba(255,255,255,0.45); max-width: 320px; }
+.timeline-left .btn-outline {
+  margin-top: 32px;
+  color: rgba(255,255,255,0.7);
+  border-color: rgba(255,255,255,0.2);
+}
+.timeline-left .btn-outline:hover { background: var(--bordeaux); border-color: var(--bordeaux); color: var(--white); }
+
+.timeline-events {
+  display: grid;
+  gap: 0;
+}
+.timeline-event {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 28px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+}
+.timeline-event:first-child { border-top: 1px solid rgba(255,255,255,0.06); }
+.timeline-event::before {
+  content: '';
+  position: absolute;
+  left: 100px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: rgba(255,255,255,0.06);
+}
+.timeline-date {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: rgba(255,255,255,0.3);
+  padding-top: 3px;
+}
+.timeline-content {}
+.timeline-status {
+  display: inline-block;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  margin-bottom: 8px;
+}
+.timeline-status.done { background: rgba(166,34,73,0.2); color: var(--bordeaux-mid); }
+.timeline-status.active { background: rgba(166,34,73,0.3); color: var(--bordeaux-mid); border: 1px solid rgba(166,34,73,0.4); }
+.timeline-status.pending { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); }
+.timeline-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.timeline-desc {
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 8 — FAQ
+═══════════════════════════════════════════════ */
+#faq {
+  padding: var(--section-v) 0;
+  background: var(--white);
+}
+.faq-inner {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 80px;
+}
+.faq-list {
+  display: grid;
+  gap: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--beige);
+}
+.faq-item:first-child { border-top: 1px solid var(--beige); }
+.faq-q {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+  text-align: left;
+}
+.faq-q-text {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--black);
+  letter-spacing: 0.2px;
+}
+.faq-icon {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--beige);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.faq-item.open .faq-icon { background: var(--bordeaux); border-color: var(--bordeaux); }
+.faq-icon svg { width: 10px; height: 10px; stroke: var(--grey); fill: none; stroke-width: 2; transition: stroke 0.2s; }
+.faq-item.open .faq-icon svg { stroke: var(--white); }
+.faq-a {
+  display: none;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.8;
+  padding-bottom: 20px;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 9 — POR QUÉ COHEN
+═══════════════════════════════════════════════ */
+#por-que-cohen {
+  padding: var(--section-v) 0;
+  background: var(--beige-pale);
+  border-top: 1px solid var(--beige);
+  border-bottom: 1px solid var(--beige);
+}
+.cohen-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--beige);
+  margin-top: 56px;
+}
+.cohen-card {
+  padding: 36px 28px;
+  border-right: 1px solid var(--beige);
+  background: var(--white);
+  transition: background 0.2s;
+}
+.cohen-card:last-child { border-right: none; }
+.cohen-card:hover { background: var(--bordeaux-pale); }
+.cohen-num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  color: var(--bordeaux);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.cohen-card-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 10px;
+}
+.cohen-card-desc {
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--grey);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════
+   SECCIÓN 10 — CTA FINAL
+═══════════════════════════════════════════════ */
+#cta-final {
+  padding: 100px 0;
+  background: var(--bordeaux);
+  position: relative;
+  overflow: hidden;
+}
+#cta-final::before {
+  content: 'FAL';
+  font-family: var(--font-display);
+  font-size: 300px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.04);
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+}
+.cta-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 60px;
+  align-items: center;
+}
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4.5vw, 56px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.cta-sub {
+  font-size: 14px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  max-width: 500px;
+}
+.cta-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: stretch;
+  min-width: 220px;
+}
+.btn-white {
+  background: var(--white);
+  color: var(--bordeaux);
+  padding: 15px 28px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid var(--white);
+  text-align: center;
+  transition: all 0.2s;
+  display: block;
+}
+.btn-white:hover { background: transparent; color: var(--white); }
+.btn-ghost-white {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+  padding: 13px 28px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid rgba(255,255,255,0.25);
+  text-align: center;
+  transition: all 0.2s;
+  display: block;
+}
+.btn-ghost-white:hover { border-color: var(--white); color: var(--white); }
+.cta-legal {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  background: var(--black);
+  padding: 48px 40px 32px;
+  color: rgba(255,255,255,0.3);
+}
+.footer-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: rgba(255,255,255,0.5);
+}
+.footer-links {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+}
+.footer-links a {
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+.footer-copy {
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+  text-align: right;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { min-height: 360px; }
+  .que-es-grid, .aportes-inner, .timeline-inner, .faq-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cobertura-header { grid-template-columns: 1fr; gap: 32px; }
+  .calc-top, .calc-bottom { grid-template-columns: 1fr; }
+  .calc-input-block { border-right: none; border-bottom: 1px solid var(--beige); }
+  .calc-bottom-block { border-right: none; border-bottom: 1px solid var(--beige); }
+  .calc-results { grid-template-columns: 1fr; }
+  .res-block { border-right: none; border-bottom: 1px solid var(--beige); }
+  .steps-grid { grid-template-columns: 1fr 1fr; }
+  .cohen-grid { grid-template-columns: 1fr; }
+  .cohen-card { border-right: none; border-bottom: 1px solid var(--beige); }
+  .cohen-card:last-child { border-bottom: none; }
+  .cobertura-items { grid-template-columns: 1fr 1fr; }
+  .cobertura-item:nth-child(3n) { border-right: 1px solid var(--beige); }
+  .cobertura-item:nth-child(2n) { border-right: none; }
+  .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cta-actions { flex-direction: row; }
+  nav .nav-links { display: none; }
+  .container, .container-sm { padding: 0 24px; }
+  .hero-left { padding: 60px 24px; }
+  :root { --section-v: 64px; }
+}
+@media (max-width: 560px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .step { border-right: none; border-bottom: 1px solid var(--beige); }
+  .step:last-child { border-bottom: none; }
+  .step-arrow { display: none; }
+  .hero-stats { grid-template-columns: 1fr 1fr; }
+  .alert-bar { flex-wrap: wrap; gap: 8px; }
+  .cta-actions { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- Cohen Logo SVG inline -->
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="30" height="30" stroke="#a62249" stroke-width="1.5"/>
+      <rect x="6" y="10" width="20" height="2.5" fill="#a62249"/>
+      <rect x="6" y="15" width="20" height="2.5" fill="#a62249"/>
+      <rect x="6" y="20" width="14" height="2.5" fill="#a62249"/>
+    </svg>
+    <span class="nav-logo-text">Cohen</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#que-es">¿Qué es el FAL?</a></li>
+    <li><a href="#aportes">Aportes</a></li>
+    <li><a href="#calculadora">Calculadora</a></li>
+    <li><a href="#cobertura">Cobertura</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#cta-final" class="nav-cta">Abrir cuenta FAL</a></li>
+  </ul>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<section id="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Ley 27.802 · Modernización Laboral</div>
+    <h1 class="hero-h1">
+      El fondo que<br>
+      financia tus<br>
+      <em>indemnizaciones</em><br>
+      con costo cero.
+    </h1>
+    <p class="hero-sub">
+      El Fondo de Asistencia Laboral (FAL) permite a las empresas capitalizar mensualmente sus obligaciones laborales en el mercado de capitales. Sin costo adicional: el aporte reemplaza una parte de tus cargas sociales actuales.
+    </p>
+    <div class="hero-actions">
+      <a href="#calculadora" class="btn-primary">Calculá tu fondo</a>
+      <a href="#que-es" class="btn-text">¿Cómo funciona?</a>
+    </div>
+    <div class="hero-badge">
+      Cohen es una <span>ALyC habilitada por la CNV</span> para administrar Fondos de Asistencia Laboral.
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-big-number">27802</div>
+    <div class="hero-right-intro">
+      <div class="hero-right-eyebrow">&#9654; En números · Ley 27.802</div>
+      <div class="hero-right-title">El instrumento que transforma <em>cómo las empresas planifican</em> sus obligaciones laborales.</div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="hero-stat-value red">2,5%</span>
+        <span class="hero-stat-label">Aporte PyME</span>
+        <span class="hero-stat-sub">De la masa salarial bruta</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value red">1%</span>
+        <span class="hero-stat-label">Gran Empresa</span>
+        <span class="hero-stat-sub">De la masa salarial bruta</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">$0</span>
+        <span class="hero-stat-label">Costo neto</span>
+        <span class="hero-stat-sub">Se compensa en SIPA</span>
+      </div>
+      <div class="hero-stat">
+        <span class="hero-stat-value">Jul 2026</span>
+        <span class="hero-stat-label">Vigencia estimada</span>
+        <span class="hero-stat-sub">Según Ley 27.802</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ ALERT BAR ═══════ -->
+<div class="alert-bar">
+  <div class="alert-dot"></div>
+  <p class="alert-text">
+    <strong>Estado actual:</strong> La Ley 27.802 fue promulgada en marzo de 2026. Una medida cautelar suspendió 83 artículos provisoriamente mientras el Gobierno apela. La CNV avanza con la reglamentación. Vigencia estimada: 1 de julio de 2026.
+  </p>
+  <a href="#timeline" class="alert-link">Ver cronograma →</a>
+</div>
+
+<!-- ═══════ SECCIÓN 2: QUÉ ES ═══════ -->
+<section id="que-es">
+  <div class="container">
+    <div class="que-es-grid">
+
+      <div class="que-es-visual">
+        <div class="que-es-box">
+          <div class="que-es-box-label">Ley 27.802 · Art. 58</div>
+          <div class="que-es-box-num">FAL</div>
+          <div class="que-es-box-desc">
+            Fondo de Asistencia Laboral. Un patrimonio separado, inembargable e inajenable que crece mes a mes con los aportes del empleador y los rendimientos del mercado de capitales.
+          </div>
+        </div>
+        <span class="que-es-accent"></span>
+        <div class="que-es-features">
+          <div class="que-es-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <div class="feature-title">Patrimonio separado</div>
+              <div class="feature-desc">Independiente del patrimonio empresarial, inembargable e inajenable. Solo puede usarse para cubrir las obligaciones laborales previstas en la ley.</div>
+            </div>
+          </div>
+          <div class="que-es-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <div class="feature-title">Capitalización mensual</div>
+              <div class="feature-desc">Los aportes se integran mensualmente junto con tus contribuciones patronales vía ARCA. Sin trámites adicionales.</div>
+            </div>
+          </div>
+          <div class="que-es-feature">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+            </div>
+            <div>
+              <div class="feature-title">Rendimientos exentos</div>
+              <div class="feature-desc">Los intereses y rendimientos del FAL están exentos de Impuesto a las Ganancias y no están gravados por IVA. Tu fondo crece limpio.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="eyebrow">El concepto</div>
+        <h2 class="section-title">
+          El despido deja de ser un<br>
+          <em>golpe de caja.</em>
+        </h2>
+        <p class="section-body">
+          Antes de la reforma, cuando una empresa despedía a un empleado, el costo de la indemnización impactaba directamente en el flujo de caja en ese momento. Sin planificación. Sin colchón.
+        </p>
+        <br>
+        <p class="section-body">
+          El FAL cambia esa lógica: la empresa va depositando mensualmente un porcentaje de su masa salarial en una cuenta de inversión propia, administrada por entidades autorizadas por la CNV como Cohen. Ese fondo crece, genera rendimientos, y está disponible cuando lo necesitás.
+        </p>
+        <br>
+        <p class="section-body">
+          Y lo más importante: <strong style="color:var(--black);font-weight:600;">el costo neto es cero</strong>, porque el aporte al FAL se compensa con una reducción equivalente en las contribuciones patronales al SIPA.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ SECCIÓN 3: APORTES ═══════ -->
+<section id="aportes">
+  <div class="container">
+    <div class="aportes-inner">
+      <div class="aportes-left">
+        <div class="eyebrow">Los números</div>
+        <h2 class="section-title">Tu aporte mensual,<br><em>definido por ley.</em></h2>
+        <p class="section-body">
+          La base de cálculo son las remuneraciones que usás para determinar las contribuciones patronales al SIPA. La misma base de siempre, solo que ahora una parte trabaja para vos.
+        </p>
+        <div class="aportes-callout">
+          <p>
+            <strong>Ejemplo práctico:</strong> Si tu PyME tiene una masa salarial de $5.000.000/mes, tu aporte al FAL es de $125.000 mensuales — exactamente lo mismo que antes ibas al SIPA y ahora se destina a tu fondo de inversión. Sin pagar un peso más.
+          </p>
+        </div>
+      </div>
+
+      <div class="aportes-cards">
+        <div class="aporte-card">
+          <div class="aporte-tipo">PyME · Micro, Pequeñas y Medianas Empresas</div>
+          <div class="aporte-numero">2,5<span>%</span></div>
+          <div class="aporte-desc">Sobre la masa salarial base SIPA · mensual</div>
+          <div class="aporte-max"><strong>Máximo posible:</strong> hasta 3% por decreto del PEN</div>
+          <div class="aporte-cero">Costo neto = $0</div>
+        </div>
+        <div class="aporte-card">
+          <div class="aporte-tipo">Gran Empresa · Resto del sector privado</div>
+          <div class="aporte-numero">1<span>%</span></div>
+          <div class="aporte-desc">Sobre la masa salarial base SIPA · mensual</div>
+          <div class="aporte-max"><strong>Máximo posible:</strong> hasta 1,5% por decreto del PEN</div>
+          <div class="aporte-cero">Costo neto = $0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECCIÓN 4: CALCULADORA ═══════ -->
+<section id="calculadora">
+  <div class="container">
+    <div class="calc-header">
+      <div class="eyebrow" style="justify-content:center;">Herramienta</div>
+      <h2 class="section-title" style="text-align:center;">Calculá el rendimiento<br>de <em>tu FAL</em></h2>
+      <p class="section-body" style="margin:0 auto;text-align:center;">
+        Proyectá el fondo acumulado, rendimientos y cobertura de indemnizaciones según los datos de tu empresa.
+      </p>
+    </div>
+
+    <div class="calc-widget">
+      <!-- INPUTS -->
+      <div class="calc-top">
+        <div class="calc-input-block">
+          <span class="calc-input-label">Tipo de empresa</span>
+          <div class="tipo-toggle">
+            <button class="tipo-btn active" id="btn-pyme" onclick="setTipo('pyme')">
+              PyME
+              <span class="tipo-pct">2,5%</span>
+            </button>
+            <button class="tipo-btn" id="btn-grande" onclick="setTipo('grande')">
+              Gran Empresa
+              <span class="tipo-pct">1%</span>
+            </button>
+          </div>
+          <p class="input-hint">Aporte mensual sobre masa salarial bruta (Ley 27.802 art. 60)</p>
+        </div>
+
+        <div class="calc-input-block">
+          <span class="calc-input-label">Masa salarial bruta mensual</span>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="salarios" value="5000000" min="0" step="100000" oninput="calcular()">
+          </div>
+          <p class="input-hint">Suma de remuneraciones de tu nómina (misma base que SIPA)</p>
+        </div>
+
+        <div class="calc-input-block">
+          <span class="calc-input-label">Perfil de inversión</span>
+          <div class="perfil-grid">
+            <button class="perfil-btn" id="btn-conservador" onclick="setPerfil('conservador')">
+              <span class="perfil-nombre">Conservador</span>
+              <span class="perfil-tna">55% TNA</span>
+              <span class="perfil-desc">Money market</span>
+            </button>
+            <button class="perfil-btn active" id="btn-moderado" onclick="setPerfil('moderado')">
+              <span class="perfil-nombre">Moderado</span>
+              <span class="perfil-tna">75% TNA</span>
+              <span class="perfil-desc">Renta fija</span>
+            </button>
+            <button class="perfil-btn" id="btn-dinamico" onclick="setPerfil('dinamico')">
+              <span class="perfil-nombre">Dinámico</span>
+              <span class="perfil-tna">95% TNA</span>
+              <span class="perfil-desc">Mixto</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLAZO -->
+      <div class="calc-input-block" style="border-top:1px solid var(--beige);display:grid;grid-template-columns:120px 1fr;gap:28px;align-items:center;">
+        <div>
+          <span class="calc-input-label">Horizonte</span>
+          <div class="plazo-val" id="plazo-display">3 <span>años</span></div>
+        </div>
+        <div>
+          <input type="range" id="plazo" min="1" max="10" value="3" step="1" oninput="updatePlazo()">
+          <div class="plazo-labels">
+            <span>1 año</span><span>3 años</span><span>5 años</span><span>7 años</span><span>10 años</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESULTADOS -->
+      <div class="calc-results">
+        <div class="res-block">
+          <span class="res-label">Aporte mensual</span>
+          <span class="res-value dark" id="res-aporte">$125.000</span>
+          <span class="res-sub">Compensado en cargas sociales</span>
+        </div>
+        <div class="res-block highlight">
+          <span class="res-label">Fondo acumulado</span>
+          <span class="res-value" id="res-fondo">$6,2M</span>
+          <span class="res-sub" id="res-fondo-sub">Al cabo de 3 años</span>
+        </div>
+        <div class="res-block">
+          <span class="res-label">Rendimiento generado</span>
+          <span class="res-value" id="res-rendimiento">$1,7M</span>
+          <span class="res-sub">Exento de Ganancias e IVA</span>
+        </div>
+      </div>
+
+      <!-- COMPARATIVA + COBERTURA -->
+      <div class="calc-bottom">
+        <div class="calc-bottom-block">
+          <div class="calc-block-title">▶ FAL vs. sistema actual</div>
+          <div class="comp-row">
+            <div class="comp-label">Fondo FAL (con rendimiento)</div>
+            <div class="comp-bar-wrap"><div class="comp-bar red" id="bar-fal" style="width:100%"></div></div>
+            <div class="comp-val" id="comp-val-fal">$6,2M</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label">Sistema actual (sin FAL)</div>
+            <div class="comp-bar-wrap"><div class="comp-bar grey" id="bar-trad" style="width:72%"></div></div>
+            <div class="comp-val" id="comp-val-trad">$4,5M</div>
+          </div>
+          <div class="comp-row">
+            <div class="comp-label" style="color:var(--bordeaux);font-weight:600;">Ventaja FAL</div>
+            <div class="comp-bar-wrap"><div class="comp-bar" id="bar-ventaja" style="width:28%;background:var(--bordeaux-light);border:1px solid var(--bordeaux-mid)"></div></div>
+            <div class="comp-val" id="comp-val-ventaja" style="color:var(--bordeaux);">+$1,7M</div>
+          </div>
+        </div>
+
+        <div class="calc-bottom-block">
+          <div class="calc-block-title">▶ Cobertura de indemnizaciones</div>
+          <div class="cob-row">
+            <span class="cob-text">Pasivo contingente cubierto</span>
+            <span class="cob-pct" id="cob-pct">78%</span>
+          </div>
+          <div class="cob-bar-wrap">
+            <div class="cob-bar" id="cob-bar" style="width:78%"></div>
+          </div>
+          <p class="cob-note" id="cob-note">Estimación basada en 8% de rotación anual y 6 sueldos de indemnización promedio. Si el fondo no cubre el total, el empleador abona la diferencia.</p>
+        </div>
+      </div>
+
+      <div class="calc-disclaimer">
+        <strong>Aviso:</strong> Esta calculadora tiene fines ilustrativos. Las tasas son estimaciones referenciales del mercado argentino actual y no constituyen proyecciones garantizadas. La implementación del FAL está sujeta a la reglamentación pendiente. Cohen no garantiza rendimientos futuros. Consultá a tu asesor antes de tomar decisiones.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECCIÓN 5: COBERTURA ═══════ -->
+<section id="cobertura">
+  <div class="container">
+    <div class="cobertura-header">
+      <div>
+        <div class="eyebrow">Cobertura</div>
+        <h2 class="section-title">No solo para despidos.<br><em>Cubre casi todo.</em></h2>
+      </div>
+      <p class="section-body">
+        El FAL fue diseñado para cubrir prácticamente todo el espectro de obligaciones indemnizatorias de la Ley de Contrato de Trabajo y estatutos especiales, no únicamente el despido sin causa.
+      </p>
+    </div>
+
+    <div class="cobertura-items">
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Despido sin justa causa</div>
+        <div class="cobertura-item-art">Art. 245 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Preaviso e integración</div>
+        <div class="cobertura-item-art">Arts. 232 y 233 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Incapacidad absoluta y parcial</div>
+        <div class="cobertura-item-art">Art. 212 LCT (párrs. 2°, 3° y 4°)</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Fuerza mayor y falta de trabajo</div>
+        <div class="cobertura-item-art">Art. 247 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Despido indirecto</div>
+        <div class="cobertura-item-art">Art. 246 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Contratos a plazo fijo</div>
+        <div class="cobertura-item-art">Art. 250 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Fallecimiento del trabajador</div>
+        <div class="cobertura-item-art">Art. 248 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Acuerdo de voluntad concurrente</div>
+        <div class="cobertura-item-art">Art. 241 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Estatutos profesionales</div>
+        <div class="cobertura-item-art">Incl. Régimen de Trabajo Agrario</div>
+      </div>
+    </div>
+
+    <div class="cobertura-nota">
+      <strong>Importante:</strong> La existencia, inexistencia o insuficiencia del fondo no limita, reduce ni condiciona tu responsabilidad como empleador. Si el FAL no cubre el total, vos abonás la diferencia. El FAL es un colchón financiero, no una exoneración de responsabilidad.
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ SECCIÓN 6: CÓMO FUNCIONA ═══════ -->
+<section id="como-funciona">
+  <div class="container">
+    <div class="eyebrow">El proceso</div>
+    <h2 class="section-title">Cuatro pasos,<br><em>sin complicaciones.</em></h2>
+
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="step-num">01</div>
+        <div class="step-title">Elegís adherir al FAL</div>
+        <div class="step-desc">El FAL es optativo. Una vez que optás por sumarte, el aporte mensual se vuelve obligatorio. Podés seguir con el sistema tradicional si preferís.</div>
+      </div>
+      <div class="step">
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="step-num">02</div>
+        <div class="step-title">Abrís tu cuenta en Cohen</div>
+        <div class="step-desc">Como ALyC habilitada por la CNV, Cohen te abre una cuenta FAL individual a nombre de tu empresa. Es tu patrimonio separado: inembargable e inajenable.</div>
+      </div>
+      <div class="step">
+        <div class="step-arrow">
+          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </div>
+        <div class="step-num">03</div>
+        <div class="step-title">Aportes vía ARCA</div>
+        <div class="step-desc">Al declarar tus contribuciones patronales, el aporte al FAL se canaliza automáticamente a través de ARCA (ex-AFIP). Sin trámites adicionales.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Tu fondo crece e invierte</div>
+        <div class="step-desc">Los recursos se invierten según el perfil que elegís y generan rendimientos exentos de impuestos. Cuando lo necesitás, está disponible en 5 días hábiles.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECCIÓN 7: TIMELINE ═══════ -->
+<section id="timeline">
+  <div class="container">
+    <div class="timeline-inner">
+      <div class="timeline-left">
+        <div class="eyebrow">Estado actual</div>
+        <h2 class="section-title" style="color:var(--white);">¿Cuándo entra<br><em style="color:var(--bordeaux-mid);">en vigencia?</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.45);">
+          La Ley 27.802 fue promulgada pero enfrenta un proceso judicial que suspendió provisoriamente algunos artículos. El Gobierno apeló y la reglamentación avanza en paralelo.
+        </p>
+        <a href="#cta-final" class="btn-outline" style="display:inline-block;margin-top:28px;">Prepararme ahora →</a>
+      </div>
+
+      <div class="timeline-events">
+        <div class="timeline-event">
+          <div class="timeline-date">Dic 2025</div>
+          <div class="timeline-content">
+            <span class="timeline-status done">Completado</span>
+            <div class="timeline-title">Proyecto enviado al Congreso</div>
+            <div class="timeline-desc">El PEN remitió al Senado el proyecto de Ley de Modernización Laboral (Expte. 159/25).</div>
+          </div>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-date">Mar 2026</div>
+          <div class="timeline-content">
+            <span class="timeline-status done">Completado</span>
+            <div class="timeline-title">Sanción y promulgación · Ley 27.802</div>
+            <div class="timeline-desc">La ley fue aprobada por el Senado y promulgada por el Poder Ejecutivo.</div>
+          </div>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-date">Abr 2026</div>
+          <div class="timeline-content">
+            <span class="timeline-status active">En curso</span>
+            <div class="timeline-title">Medida cautelar judicial · Apelación en trámite</div>
+            <div class="timeline-desc">Una resolución judicial suspendió 83 artículos. El Gobierno apeló. La CNV y el Ministerio de Economía continúan con la reglamentación.</div>
+          </div>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-date">Jun 2026</div>
+          <div class="timeline-content">
+            <span class="timeline-status pending">Estimado</span>
+            <div class="timeline-title">Decreto reglamentario + resoluciones</div>
+            <div class="timeline-desc">Se esperan el decreto reglamentario del PEN y resoluciones de la Secretaría de Trabajo, ARCA y CNV.</div>
+          </div>
+        </div>
+        <div class="timeline-event">
+          <div class="timeline-date">1 Jul 2026</div>
+          <div class="timeline-content">
+            <span class="timeline-status pending">Estimado</span>
+            <div class="timeline-title">Vigencia del FAL · Apertura de cuentas</div>
+            <div class="timeline-desc">Fecha establecida por la Ley 27.802 para la entrada en vigor del Fondo de Asistencia Laboral.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECCIÓN 8: FAQ ═══════ -->
+<section id="faq">
+  <div class="container">
+    <div class="faq-inner">
+      <div>
+        <div class="eyebrow">Preguntas frecuentes</div>
+        <h2 class="section-title">Todo lo que<br>necesitás <em>saber.</em></h2>
+        <p class="section-body">Si tenés más preguntas, podés contactar a tu asesor Cohen o escribirnos directamente.</p>
+        <a href="#cta-final" class="btn-primary" style="display:inline-block;margin-top:28px;">Hablar con un asesor</a>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿El FAL es obligatorio para todas las empresas?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">No. El FAL es optativo: podés seguir con el régimen de indemnización tradicional. Sin embargo, una vez que optás por adherirte, el aporte mensual se vuelve obligatorio para todos tus empleados registrados.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Qué pasa si el fondo no alcanza para pagar la indemnización?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">La ley es clara: la existencia, inexistencia o insuficiencia del FAL no limita ni reduce tu responsabilidad como empleador. Si el fondo no cubre el total, vos abonás la diferencia. El FAL es un colchón, no una exoneración.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Cuándo empieza a cubrirme el FAL?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">El FAL cubre contingencias a partir de haber acumulado contribuciones durante al menos 6 períodos mensuales. Durante los primeros 6 meses, el empleador afronta las indemnizaciones por sus propios medios.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Qué pasa con el fondo si el empleado renuncia o se jubila?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">Si la relación laboral termina por renuncia o jubilación, el fondo permanece en el FAL para cubrir futuras contingencias de la empresa. No se transfiere ni al empleador ni al trabajador en esos casos.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿Puedo suspender los aportes en algún momento?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">Sí. Si podés acreditar que el saldo acumulado cubre los porcentajes que determine la reglamentación de las posibles contingencias de tu nómina, podés solicitar la interrupción o suspensión del aporte mensual.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-q-text">¿El FAL impacta en el sistema previsional?</span>
+            <div class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </button>
+          <div class="faq-a">Este es uno de los debates centrales de la reforma. El financiamiento del FAL proviene de una reasignación de contribuciones previsionales (el aporte al SIPA baja del 16% al 15% para grandes empresas y del 16% al 13,5% para PyMEs). Eso podría implicar menor recaudación para el sistema jubilatorio.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ SECCIÓN 9: POR QUÉ COHEN ═══════ -->
+<section id="por-que-cohen">
+  <div class="container">
+    <div class="eyebrow">Por qué Cohen</div>
+    <h2 class="section-title" style="max-width:520px;">Tu FAL administrado<br>por <em>aliados financieros.</em></h2>
+    <div class="cohen-grid">
+      <div class="cohen-card">
+        <div class="cohen-num">ALyC</div>
+        <div class="cohen-card-title">Habilitados por la CNV</div>
+        <div class="cohen-card-desc">Cohen es un Agente de Liquidación y Compensación regulado por la Comisión Nacional de Valores. Exactamente el tipo de entidad habilitada por la Ley 27.802 para administrar FALs.</div>
+      </div>
+      <div class="cohen-card">
+        <div class="cohen-num">3</div>
+        <div class="cohen-card-title">Perfiles de inversión</div>
+        <div class="cohen-card-desc">Conservador, moderado o dinámico. Elegís el perfil que se adapta al horizonte y al apetito de riesgo de tu empresa. Podés ajustarlo en cualquier momento.</div>
+      </div>
+      <div class="cohen-card">
+        <div class="cohen-num">5</div>
+        <div class="cohen-card-title">Días hábiles para cobrar</div>
+        <div class="cohen-card-desc">Ante una contingencia cubierta, la administradora debe transferir los fondos al trabajador dentro de los 5 días hábiles de recibida la declaración jurada. Rápido y sin fricciones.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECCIÓN 10: CTA FINAL ═══════ -->
+<section id="cta-final">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="eyebrow" style="color:rgba(255,255,255,0.5);">
+          <span style="background:rgba(255,255,255,0.5);clip-path:polygon(0 0, 100% 50%, 0 100%);width:6px;height:6px;display:inline-block;margin-right:8px;"></span>
+          Empezá hoy
+        </div>
+        <h2 class="cta-title">
+          Tu empresa ya debería<br>
+          estar preparándose.
+        </h2>
+        <p class="cta-sub">
+          Mientras el mercado espera la reglamentación, las empresas que se adelanten van a tener ventaja. En Cohen ya estamos trabajando en los procesos de apertura para que tu cuenta FAL esté lista el día que la ley entre en vigencia.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a href="#" class="btn-white">Abrir cuenta FAL</a>
+        <a href="#" class="btn-ghost-white">Hablar con un asesor</a>
+      </div>
+    </div>
+    <div class="cta-legal">
+      Cohen es una Agente de Liquidación y Compensación (ALyC) autorizada por la Comisión Nacional de Valores (CNV). Los Fondos de Asistencia Laboral están regulados por la Ley 27.802 de Modernización Laboral y su reglamentación pendiente. Esta información tiene carácter educativo y no constituye asesoramiento jurídico ni financiero. Los rendimientos proyectados son estimativos y no garantizados. Consultá a tu asesor antes de tomar decisiones de inversión.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Cohen™</div>
+    <ul class="footer-links">
+      <li><a href="#">cohen.com.ar</a></li>
+      <li><a href="#">Cohen Connect</a></li>
+      <li><a href="#">Perspectivas</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+    <div class="footer-copy">
+      © 2026 Cohen S.A. ALyC · CNV<br>
+      Todos los derechos reservados.
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════ SCRIPTS ═══════ -->
+<script>
+/* ── STATE ── */
+let tipo   = 'pyme';
+let perfil = 'moderado';
+let plazo  = 3;
+
+const tasas = { conservador: 0.55, moderado: 0.75, dinamico: 0.95 };
+const pcts  = { pyme: 0.025, grande: 0.010 };
+
+/* ── TIPO ── */
+function setTipo(t) {
+  tipo = t;
+  document.getElementById('btn-pyme').classList.toggle('active', t === 'pyme');
+  document.getElementById('btn-grande').classList.toggle('active', t === 'grande');
+  calcular();
+}
+
+/* ── PERFIL ── */
+function setPerfil(p) {
+  perfil = p;
+  ['conservador','moderado','dinamico'].forEach(x =>
+    document.getElementById('btn-' + x).classList.toggle('active', x === p)
+  );
+  calcular();
+}
+
+/* ── PLAZO ── */
+function updatePlazo() {
+  plazo = parseInt(document.getElementById('plazo').value);
+  document.getElementById('plazo-display').innerHTML =
+    plazo + ' <span>' + (plazo === 1 ? 'año' : 'años') + '</span>';
+  calcular();
+}
+
+/* ── CÁLCULO ── */
+function calcular() {
+  const salarios = parseFloat(document.getElementById('salarios').value) || 0;
+  const pct      = pcts[tipo];
+  const tna      = tasas[perfil];
+  const meses    = plazo * 12;
+  const aporteM  = salarios * pct;
+  const tasaM    = Math.pow(1 + tna, 1/12) - 1;
+
+  // Valor futuro de aportes periódicos
+  const fondo  = tasaM > 0
+    ? aporteM * (Math.pow(1 + tasaM, meses) - 1) / tasaM
+    : aporteM * meses;
+
+  const capital    = aporteM * meses;
+  const rendim     = fondo - capital;
+  const tradicional = capital;
+  const ventaja    = fondo - tradicional;
+
+  // Cobertura: 8% rotación anual, 6 sueldos promedio
+  const indemnTotal = (salarios * 0.08 * 6) * plazo;
+  const cob = Math.min(Math.round((fondo / indemnTotal) * 100), 100);
+
+  // RENDER
+  setText('res-aporte',     fmt(aporteM));
+  setText('res-fondo',      fmt(fondo));
+  setText('res-fondo-sub',  'Al cabo de ' + plazo + (plazo === 1 ? ' año' : ' años'));
+  setText('res-rendimiento', fmt(rendim));
+
+  const maxVal = Math.max(fondo, tradicional, 1);
+  setBar('bar-fal',     fondo      / maxVal * 100);
+  setBar('bar-trad',    tradicional / maxVal * 100);
+  setBar('bar-ventaja', Math.max(ventaja / maxVal * 100, 0));
+
+  setText('comp-val-fal',    fmt(fondo));
+  setText('comp-val-trad',   fmt(tradicional));
+  setText('comp-val-ventaja', '+' + fmt(ventaja));
+
+  document.getElementById('cob-bar').style.width = cob + '%';
+  setText('cob-pct',  cob + '%');
+  setText('cob-note',
+    'Estimación sobre 8% de rotación anual y 6 sueldos de indemnización promedio. ' +
+    'Con ' + fmt(fondo) + ' en el fondo cubrís aprox. ' + cob +
+    '% del pasivo contingente proyectado a ' + plazo + (plazo === 1 ? ' año.' : ' años.')
+  );
+}
+
+function setText(id, val) { document.getElementById(id).textContent = val; }
+function setBar(id, pct)  { document.getElementById(id).style.width = pct + '%'; }
+
+function fmt(n) {
+  if (!n || isNaN(n)) return '$0';
+  if (Math.abs(n) >= 1_000_000)
+    return '$' + (n / 1_000_000).toLocaleString('es-AR', { minimumFractionDigits: 1, maximumFractionDigits: 2 }) + 'M';
+  return '$' + Math.round(n).toLocaleString('es-AR');
+}
+
+/* ── FAQ ── */
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* ── SCROLL NAV ── */
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  nav.style.boxShadow = window.scrollY > 20
+    ? '0 1px 20px rgba(0,0,0,0.06)'
+    : 'none';
+});
+
+/* ── INIT ── */
+calcular();
+</script>
+</body>
+</html>
