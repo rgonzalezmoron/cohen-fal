@@ -642,7 +642,7 @@ nav {
 }
 .calc-top {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-bottom: 1px solid var(--beige);
 }
 .calc-input-block {
@@ -698,17 +698,12 @@ input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
 input[type="number"]:focus { border-color: var(--bordeaux); }
 .input-hint { font-size: 10px; color: var(--grey-light); margin-top: 6px; line-height: 1.5; }
 
-/* perfil */
-.perfil-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
-.perfil-btn {
-  border: 1.5px solid var(--beige); background: var(--white);
-  padding: 12px 6px; cursor: pointer; text-align: center; transition: all 0.2s;
-}
-.perfil-btn.active { border-color: var(--bordeaux); background: var(--bordeaux-pale); }
-.perfil-nombre { display: block; font-size: 9px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey); transition: color 0.2s; }
-.perfil-btn.active .perfil-nombre { color: var(--bordeaux); }
-.perfil-tna { display: block; font-family: var(--font-display); font-size: 18px; color: var(--bordeaux); margin: 3px 0; }
-.perfil-desc { display: block; font-size: 9px; color: var(--grey-light); }
+
+
+
+
+
+
 
 /* plazo */
 .plazo-val { font-family: var(--font-display); font-size: 36px; color: var(--bordeaux); margin-bottom: 8px; }
@@ -1493,27 +1488,6 @@ footer {
           </div>
           <p class="input-hint">Suma de remuneraciones de tu nómina (misma base que SIPA)</p>
         </div>
-
-        <div class="calc-input-block">
-          <span class="calc-input-label">Perfil de inversión</span>
-          <div class="perfil-grid">
-            <button class="perfil-btn" id="btn-conservador" onclick="setPerfil('conservador')">
-              <span class="perfil-nombre">Conservador</span>
-              <span class="perfil-tna">55% TNA</span>
-              <span class="perfil-desc">Money market</span>
-            </button>
-            <button class="perfil-btn active" id="btn-moderado" onclick="setPerfil('moderado')">
-              <span class="perfil-nombre">Moderado</span>
-              <span class="perfil-tna">75% TNA</span>
-              <span class="perfil-desc">Renta fija</span>
-            </button>
-            <button class="perfil-btn" id="btn-dinamico" onclick="setPerfil('dinamico')">
-              <span class="perfil-nombre">Dinámico</span>
-              <span class="perfil-tna">95% TNA</span>
-              <span class="perfil-desc">Mixto</span>
-            </button>
-          </div>
-        </div>
       </div>
 
       <!-- PLAZO -->
@@ -1527,6 +1501,10 @@ footer {
           <div class="plazo-labels">
             <span>1 año</span><span>3 años</span><span>5 años</span><span>7 años</span><span>10 años</span>
           </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding-top:4px;">
+          <div style="width:6px;height:6px;background:var(--bordeaux);border-radius:50%;flex-shrink:0;"></div>
+          <span style="font-size:10px;color:var(--grey-light);">Tasa de referencia: <strong style="color:var(--grey);">3,5% mensual efectivo</strong> · Promedio Lecaps del Tesoro Nacional · Referencial, sujeta a variación</span>
         </div>
       </div>
 
@@ -1584,7 +1562,7 @@ footer {
       </div>
 
       <div class="calc-disclaimer">
-        <strong>Aviso:</strong> Esta calculadora tiene fines ilustrativos. Las tasas son estimaciones referenciales del mercado argentino actual y no constituyen proyecciones garantizadas. La implementación del FAL está sujeta a la reglamentación pendiente. Cohen no garantiza rendimientos futuros. Consultá a tu asesor antes de tomar decisiones.
+        <strong>Aviso:</strong> El rendimiento proyectado utiliza una tasa de referencia del 3,5% mensual efectivo (≈ 42% TNA), basada en el promedio de Letras del Tesoro Nacional (Lecaps) de corto plazo. Es referencial y puede variar según las condiciones del mercado. Esta calculadora tiene fines ilustrativos. Cohen no garantiza rendimientos futuros. Consultá a tu asesor antes de tomar decisiones.
       </div>
     </div>
   </div>
@@ -1893,10 +1871,11 @@ footer {
 <script>
 /* ── STATE ── */
 let tipo   = 'pyme';
-let perfil = 'moderado';
 let plazo  = 3;
 
-const tasas = { conservador: 0.55, moderado: 0.75, dinamico: 0.95 };
+// Tasa referencial: promedio bonos del Tesoro argentino (Lecaps cortas)
+// ~3,5% mensual efectivo | aprox. 42% TNA — referencial, sujeta a variación
+const TASA_MENSUAL = 0.035;
 const pcts  = { pyme: 0.025, grande: 0.010 };
 
 /* ── TIPO ── */
@@ -1904,15 +1883,6 @@ function setTipo(t) {
   tipo = t;
   document.getElementById('btn-pyme').classList.toggle('active', t === 'pyme');
   document.getElementById('btn-grande').classList.toggle('active', t === 'grande');
-  calcular();
-}
-
-/* ── PERFIL ── */
-function setPerfil(p) {
-  perfil = p;
-  ['conservador','moderado','dinamico'].forEach(x =>
-    document.getElementById('btn-' + x).classList.toggle('active', x === p)
-  );
   calcular();
 }
 
@@ -1928,10 +1898,9 @@ function updatePlazo() {
 function calcular() {
   const salarios = parseFloat(document.getElementById('salarios').value) || 0;
   const pct      = pcts[tipo];
-  const tna      = tasas[perfil];
   const meses    = plazo * 12;
   const aporteM  = salarios * pct;
-  const tasaM    = Math.pow(1 + tna, 1/12) - 1;
+  const tasaM    = TASA_MENSUAL;
 
   // Valor futuro de aportes periódicos
   const fondo  = tasaM > 0
