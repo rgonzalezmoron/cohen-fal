@@ -119,69 +119,13 @@ a { text-decoration: none; color: inherit; }
   padding: 4px 10px;
 }
 
-/* ═══════════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════════ */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  background: var(--white);
-  border-bottom: 1px solid var(--beige);
-  padding: 0 40px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.nav-logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.nav-logo svg {
-  width: 28px;
-  height: 28px;
-}
-.nav-logo-text {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 500;
-  color: var(--grey);
-  letter-spacing: 0.5px;
-}
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-}
-.nav-links a {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--grey);
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--bordeaux); }
-.nav-cta {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--white) !important;
-  background: var(--bordeaux);
-  padding: 10px 20px;
-  transition: background 0.2s !important;
-}
-.nav-cta:hover { background: var(--bordeaux-dark) !important; color: var(--white) !important; }
+
 
 /* ═══════════════════════════════════════════════
    HERO
 ═══════════════════════════════════════════════ */
 #hero {
-  padding-top: 64px;
+  padding-top: 0;
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -264,15 +208,7 @@ nav {
   transition: opacity 0.2s;
 }
 .btn-text:hover { opacity: 0.7; }
-.hero-badge {
-  margin-top: 48px;
-  padding-top: 28px;
-  border-top: 1px solid var(--beige);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  color: var(--grey-light);
-}
+
 .hero-badge span { color: var(--grey); font-weight: 600; }
 
 .hero-right {
@@ -520,7 +456,7 @@ nav {
 ═══════════════════════════════════════════════ */
 #aportes {
   padding: var(--section-v) 0;
-  background: var(--black);
+  background: var(--bordeaux);
   color: var(--white);
 }
 .aportes-inner {
@@ -529,16 +465,16 @@ nav {
   gap: 80px;
   align-items: center;
 }
-.aportes-left .eyebrow { color: rgba(255,255,255,0.4); }
-.aportes-left .eyebrow::before { background: rgba(255,255,255,0.4); }
+.aportes-left .eyebrow { color: rgba(255,255,255,0.75); }
+.aportes-left .eyebrow::before { background: rgba(255,255,255,0.75); }
 .aportes-left .section-title { color: var(--white); }
-.aportes-left .section-body { color: rgba(255,255,255,0.5); }
+.aportes-left .section-body { color: rgba(255,255,255,0.95); }
 .aportes-callout {
   margin-top: 36px;
   padding: 24px;
-  border: 1px solid rgba(255,255,255,0.1);
-  background: rgba(166,34,73,0.12);
-  border-left: 3px solid var(--bordeaux-mid);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(0,0,0,0.15);
+  border-left: 3px solid rgba(255,255,255,0.5);
 }
 .aportes-callout p {
   font-size: 13px;
@@ -554,12 +490,12 @@ nav {
 }
 .aporte-card {
   padding: 32px 28px;
-  border: 1px solid rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.2);
   position: relative;
   overflow: hidden;
   transition: border-color 0.2s;
 }
-.aporte-card:hover { border-color: rgba(166,34,73,0.5); }
+.aporte-card:hover { border-color: rgba(255,255,255,0.5); }
 .aporte-card::after {
   content: '';
   position: absolute;
@@ -576,7 +512,7 @@ nav {
   font-weight: 700;
   letter-spacing: 2.5px;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.85);
   margin-bottom: 14px;
 }
 .aporte-numero {
@@ -593,17 +529,17 @@ nav {
 }
 .aporte-desc {
   font-size: 12px;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.9);
   font-weight: 300;
   margin-bottom: 16px;
 }
 .aporte-max {
   font-size: 11px;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.85);
   padding-top: 14px;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
-.aporte-max strong { color: rgba(255,255,255,0.5); }
+.aporte-max strong { color: rgba(255,255,255,1); }
 .aporte-cero {
   display: inline-block;
   margin-top: 8px;
@@ -1259,27 +1195,6 @@ footer {
 </head>
 <body>
 
-<!-- ═══════ NAV ═══════ -->
-<nav>
-  <a href="#" class="nav-logo">
-    <!-- Cohen Logo SVG inline -->
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="1" y="1" width="30" height="30" stroke="#a62249" stroke-width="1.5"/>
-      <rect x="6" y="10" width="20" height="2.5" fill="#a62249"/>
-      <rect x="6" y="15" width="20" height="2.5" fill="#a62249"/>
-      <rect x="6" y="20" width="14" height="2.5" fill="#a62249"/>
-    </svg>
-    <span class="nav-logo-text">Cohen</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#que-es">¿Qué es el FAL?</a></li>
-    <li><a href="#aportes">Aportes</a></li>
-    <li><a href="#calculadora">Calculadora</a></li>
-    <li><a href="#cobertura">Cobertura</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="#cta-final" class="nav-cta">Abrir cuenta FAL</a></li>
-  </ul>
-</nav>
 
 <!-- ═══════ HERO ═══════ -->
 <section id="hero">
@@ -1292,24 +1207,17 @@ footer {
       con costo cero.
     </h1>
     <p class="hero-sub">
-      El Fondo de Asistencia Laboral (FAL) permite a las empresas capitalizar mensualmente sus obligaciones laborales en el mercado de capitales. Sin costo adicional: el aporte reemplaza una parte de tus cargas sociales actuales.
+      El Fondo de Asistencia Laboral (FAL) es un nuevo esquema de capitalización para indemnizaciones donde los empleadores acumulan aportes mensuales obligatorios destinados a cubrir los compromisos por la extinción del vínculo laboral.
     </p>
     <div class="hero-actions">
       <a href="#calculadora" class="btn-primary">Calculá tu fondo</a>
       <a href="#que-es" class="btn-text">¿Cómo funciona?</a>
-    </div>
-    <div class="hero-badge">
-      Cohen es una <span>ALyC habilitada por la CNV</span> para administrar Fondos de Asistencia Laboral.
     </div>
   </div>
 
   <div class="hero-right">
     <div class="hero-bg-pattern"></div>
     <div class="hero-big-number">27802</div>
-    <div class="hero-right-intro">
-      <div class="hero-right-eyebrow">&#9654; En números · Ley 27.802</div>
-      <div class="hero-right-title">El instrumento que transforma <em>cómo las empresas planifican</em> sus obligaciones laborales.</div>
-    </div>
     <div class="hero-stats">
       <div class="hero-stat">
         <span class="hero-stat-value red">2,5%</span>
@@ -1339,7 +1247,7 @@ footer {
 <div class="alert-bar">
   <div class="alert-dot"></div>
   <p class="alert-text">
-    <strong>Estado actual:</strong> La Ley 27.802 fue promulgada en marzo de 2026. Una medida cautelar suspendió 83 artículos provisoriamente mientras el Gobierno apela. La CNV avanza con la reglamentación. Vigencia estimada: 1 de julio de 2026.
+    <strong>Próximamente:</strong> La Ley 27.802 fue promulgada en marzo de 2026. Se espera el decreto reglamentario en junio. Vigencia estimada del FAL: 1 de julio de 2026.
   </p>
   <a href="#timeline" class="alert-link">Ver cronograma →</a>
 </div>
@@ -1349,16 +1257,26 @@ footer {
   <div class="container">
     <div class="que-es-grid">
 
-      <div class="que-es-visual">
-        <div class="que-es-box">
-          <div class="que-es-box-label">Ley 27.802 · Art. 58</div>
-          <div class="que-es-box-num">FAL</div>
-          <div class="que-es-box-desc">
-            Fondo de Asistencia Laboral. Un patrimonio separado, inembargable e inajenable que crece mes a mes con los aportes del empleador y los rendimientos del mercado de capitales.
-          </div>
-        </div>
-        <span class="que-es-accent"></span>
-        <div class="que-es-features">
+      <div>
+        <div class="eyebrow">El concepto</div>
+        <h2 class="section-title">
+          El despido deja de ser un<br>
+          <em>golpe de caja.</em>
+        </h2>
+        <p class="section-body">
+          Antes de la reforma, cuando una empresa despedía a un empleado, el costo de la indemnización impactaba directamente en el flujo de caja en ese momento. Sin planificación. Sin colchón.
+        </p>
+        <br>
+        <p class="section-body">
+          El FAL cambia esa lógica: la empresa va depositando mensualmente un porcentaje de su masa salarial en una cuenta de inversión propia, administrada por entidades autorizadas por la CNV como Cohen. Ese fondo crece, genera rendimientos, y está disponible cuando lo necesitás.
+        </p>
+        <br>
+        <p class="section-body">
+          Y lo más importante: <strong style="color:var(--black);font-weight:600;">el costo neto es cero</strong>, porque el aporte al FAL se compensa con una reducción equivalente en las contribuciones patronales al SIPA.
+        </p>
+      </div>
+
+      <div class="que-es-features">
           <div class="que-es-feature">
             <div class="feature-icon">
               <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
@@ -1386,28 +1304,77 @@ footer {
               <div class="feature-desc">Los intereses y rendimientos del FAL están exentos de Impuesto a las Ganancias y no están gravados por IVA. Tu fondo crece limpio.</div>
             </div>
           </div>
-        </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ SECCIÓN 5: COBERTURA ═══════ -->
+<section id="cobertura">
+  <div class="container">
+    <div class="cobertura-header">
       <div>
-        <div class="eyebrow">El concepto</div>
-        <h2 class="section-title">
-          El despido deja de ser un<br>
-          <em>golpe de caja.</em>
-        </h2>
-        <p class="section-body">
-          Antes de la reforma, cuando una empresa despedía a un empleado, el costo de la indemnización impactaba directamente en el flujo de caja en ese momento. Sin planificación. Sin colchón.
-        </p>
-        <br>
-        <p class="section-body">
-          El FAL cambia esa lógica: la empresa va depositando mensualmente un porcentaje de su masa salarial en una cuenta de inversión propia, administrada por entidades autorizadas por la CNV como Cohen. Ese fondo crece, genera rendimientos, y está disponible cuando lo necesitás.
-        </p>
-        <br>
-        <p class="section-body">
-          Y lo más importante: <strong style="color:var(--black);font-weight:600;">el costo neto es cero</strong>, porque el aporte al FAL se compensa con una reducción equivalente en las contribuciones patronales al SIPA.
-        </p>
+        <div class="eyebrow">Cobertura</div>
+        <h2 class="section-title">No solo para despidos.<br><em>Cubre casi todo.</em></h2>
       </div>
+      <p class="section-body">
+        El FAL fue diseñado para cubrir prácticamente todo el espectro de obligaciones indemnizatorias de la Ley de Contrato de Trabajo y estatutos especiales, no únicamente el despido sin causa.
+      </p>
+    </div>
 
+    <div class="cobertura-items">
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Despido sin justa causa</div>
+        <div class="cobertura-item-art">Art. 245 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Preaviso e integración</div>
+        <div class="cobertura-item-art">Arts. 232 y 233 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Incapacidad absoluta y parcial</div>
+        <div class="cobertura-item-art">Art. 212 LCT (párrs. 2°, 3° y 4°)</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Fuerza mayor y falta de trabajo</div>
+        <div class="cobertura-item-art">Art. 247 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Despido indirecto</div>
+        <div class="cobertura-item-art">Art. 246 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Contratos a plazo fijo</div>
+        <div class="cobertura-item-art">Art. 250 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Fallecimiento del trabajador</div>
+        <div class="cobertura-item-art">Art. 248 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Acuerdo de voluntad concurrente</div>
+        <div class="cobertura-item-art">Art. 241 LCT</div>
+      </div>
+      <div class="cobertura-item">
+        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+        <div class="cobertura-item-title">Estatutos profesionales</div>
+        <div class="cobertura-item-art">Incl. Régimen de Trabajo Agrario</div>
+      </div>
+    </div>
+
+    <div class="cobertura-nota">
+      <strong>Importante:</strong> La existencia, inexistencia o insuficiencia del fondo no limita, reduce ni condiciona tu responsabilidad como empleador. Si el FAL no cubre el total, vos abonás la diferencia. El FAL es un colchón financiero, no una exoneración de responsabilidad.
     </div>
   </div>
 </section>
@@ -1502,28 +1469,36 @@ footer {
             <span>1 año</span><span>3 años</span><span>5 años</span><span>7 años</span><span>10 años</span>
           </div>
         </div>
-        <div style="display:flex;align-items:center;gap:8px;padding-top:4px;">
-          <div style="width:6px;height:6px;background:var(--bordeaux);border-radius:50%;flex-shrink:0;"></div>
-          <span style="font-size:10px;color:var(--grey-light);">Tasa de referencia: <strong style="color:var(--grey);">3,5% mensual efectivo</strong> · Promedio Lecaps del Tesoro Nacional · Referencial, sujeta a variación</span>
-        </div>
+
+      </div>
+
+      <!-- TASA REFERENCIA -->
+      <div style="background:var(--beige-pale);border-top:1px solid var(--beige);padding:10px 28px;display:flex;align-items:center;gap:10px;">
+        <div style="width:6px;height:6px;background:var(--bordeaux);border-radius:50%;flex-shrink:0;"></div>
+        <span style="font-size:10px;color:var(--grey-light);flex:1;">Tasa de referencia aplicada: <strong style="color:var(--grey);">3,5% mensual efectivo (~42% TNA)</strong> · Basada en el promedio de Letras del Tesoro Nacional (Lecaps) de corto plazo · Referencial, sujeta a variación de mercado</span>
       </div>
 
       <!-- RESULTADOS -->
-      <div class="calc-results">
+      <div class="calc-results" style="grid-template-columns:repeat(4,1fr);">
         <div class="res-block">
           <span class="res-label">Aporte mensual</span>
           <span class="res-value dark" id="res-aporte">$125.000</span>
           <span class="res-sub">Compensado en cargas sociales</span>
         </div>
-        <div class="res-block highlight">
-          <span class="res-label">Fondo acumulado</span>
-          <span class="res-value" id="res-fondo">$6,2M</span>
-          <span class="res-sub" id="res-fondo-sub">Al cabo de 3 años</span>
+        <div class="res-block">
+          <span class="res-label">Acumulado sin rendimiento</span>
+          <span class="res-value dark" id="res-capital">$4,5M</span>
+          <span class="res-sub" id="res-capital-sub">Capital aportado puro</span>
         </div>
         <div class="res-block">
           <span class="res-label">Rendimiento generado</span>
           <span class="res-value" id="res-rendimiento">$1,7M</span>
           <span class="res-sub">Exento de Ganancias e IVA</span>
+        </div>
+        <div class="res-block highlight">
+          <span class="res-label">Acumulado con rendimiento</span>
+          <span class="res-value" id="res-fondo">$6,2M</span>
+          <span class="res-sub" id="res-fondo-sub">Al cabo de 3 años</span>
         </div>
       </div>
 
@@ -1557,7 +1532,7 @@ footer {
           <div class="cob-bar-wrap">
             <div class="cob-bar" id="cob-bar" style="width:78%"></div>
           </div>
-          <p class="cob-note" id="cob-note">Estimación basada en 8% de rotación anual y 6 sueldos de indemnización promedio. Si el fondo no cubre el total, el empleador abona la diferencia.</p>
+          <p class="cob-note" id="cob-note">Estimamos que el 8% de tu nómina rota por año (promedio mercado argentino) y que cada desvinculación cuesta 6 sueldos promedio. Multiplicamos eso por los años del horizonte y comparamos contra tu fondo acumulado.</p>
         </div>
       </div>
 
@@ -1568,169 +1543,29 @@ footer {
   </div>
 </section>
 
-<!-- ═══════ SECCIÓN 5: COBERTURA ═══════ -->
-<section id="cobertura">
-  <div class="container">
-    <div class="cobertura-header">
-      <div>
-        <div class="eyebrow">Cobertura</div>
-        <h2 class="section-title">No solo para despidos.<br><em>Cubre casi todo.</em></h2>
-      </div>
-      <p class="section-body">
-        El FAL fue diseñado para cubrir prácticamente todo el espectro de obligaciones indemnizatorias de la Ley de Contrato de Trabajo y estatutos especiales, no únicamente el despido sin causa.
-      </p>
-    </div>
-
-    <div class="cobertura-items">
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Despido sin justa causa</div>
-        <div class="cobertura-item-art">Art. 245 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Preaviso e integración</div>
-        <div class="cobertura-item-art">Arts. 232 y 233 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Incapacidad absoluta y parcial</div>
-        <div class="cobertura-item-art">Art. 212 LCT (párrs. 2°, 3° y 4°)</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Fuerza mayor y falta de trabajo</div>
-        <div class="cobertura-item-art">Art. 247 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Despido indirecto</div>
-        <div class="cobertura-item-art">Art. 246 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Contratos a plazo fijo</div>
-        <div class="cobertura-item-art">Art. 250 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Fallecimiento del trabajador</div>
-        <div class="cobertura-item-art">Art. 248 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Acuerdo de voluntad concurrente</div>
-        <div class="cobertura-item-art">Art. 241 LCT</div>
-      </div>
-      <div class="cobertura-item">
-        <div class="cobertura-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
-        <div class="cobertura-item-title">Estatutos profesionales</div>
-        <div class="cobertura-item-art">Incl. Régimen de Trabajo Agrario</div>
-      </div>
-    </div>
-
-    <div class="cobertura-nota">
-      <strong>Importante:</strong> La existencia, inexistencia o insuficiencia del fondo no limita, reduce ni condiciona tu responsabilidad como empleador. Si el FAL no cubre el total, vos abonás la diferencia. El FAL es un colchón financiero, no una exoneración de responsabilidad.
-    </div>
-  </div>
-</section>
 
 <div class="divider"></div>
 
-<!-- ═══════ SECCIÓN 6: CÓMO FUNCIONA ═══════ -->
-<section id="como-funciona">
+<!-- ═══════ SECCIÓN 9: POR QUÉ COHEN ═══════ -->
+<section id="por-que-cohen">
   <div class="container">
-    <div class="eyebrow">El proceso</div>
-    <h2 class="section-title">Cuatro pasos,<br><em>sin complicaciones.</em></h2>
-
-    <div class="steps-grid">
-      <div class="step">
-        <div class="step-arrow">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="step-num">01</div>
-        <div class="step-title">Elegís adherir al FAL</div>
-        <div class="step-desc">El FAL es optativo. Una vez que optás por sumarte, el aporte mensual se vuelve obligatorio. Podés seguir con el sistema tradicional si preferís.</div>
+    <div class="eyebrow">Por qué Cohen</div>
+    <h2 class="section-title" style="max-width:520px;">Tu FAL administrado<br>por <em>aliados financieros.</em></h2>
+    <div class="cohen-grid">
+      <div class="cohen-card">
+        <div class="cohen-num">ALyC</div>
+        <div class="cohen-card-title">Habilitados por la CNV</div>
+        <div class="cohen-card-desc">Cohen es un Agente de Liquidación y Compensación regulado por la Comisión Nacional de Valores — exactamente el tipo de entidad habilitada por la Ley 27.802 para administrar FALs. No cualquier entidad puede hacerlo.</div>
       </div>
-      <div class="step">
-        <div class="step-arrow">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="step-num">02</div>
-        <div class="step-title">Abrís tu cuenta en Cohen</div>
-        <div class="step-desc">Como ALyC habilitada por la CNV, Cohen te abre una cuenta FAL individual a nombre de tu empresa. Es tu patrimonio separado: inembargable e inajenable.</div>
+      <div class="cohen-card">
+        <div class="cohen-num" style="font-size:32px;line-height:1.2;">Inteligencia<br>financiera</div>
+        <div class="cohen-card-title">Más que un depósito</div>
+        <div class="cohen-card-desc">Un banco te ofrece una caja de ahorro. Cohen te ofrece gestión activa: acceso al mercado de capitales, instrumentos de deuda, análisis de cartera y seguimiento permanente para maximizar el rendimiento de tu fondo dentro del marco regulatorio del FAL.</div>
       </div>
-      <div class="step">
-        <div class="step-arrow">
-          <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-        </div>
-        <div class="step-num">03</div>
-        <div class="step-title">Aportes vía ARCA</div>
-        <div class="step-desc">Al declarar tus contribuciones patronales, el aporte al FAL se canaliza automáticamente a través de ARCA (ex-AFIP). Sin trámites adicionales.</div>
-      </div>
-      <div class="step">
-        <div class="step-num">04</div>
-        <div class="step-title">Tu fondo crece e invierte</div>
-        <div class="step-desc">Los recursos se invierten según el perfil que elegís y generan rendimientos exentos de impuestos. Cuando lo necesitás, está disponible en 5 días hábiles.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══════ SECCIÓN 7: TIMELINE ═══════ -->
-<section id="timeline">
-  <div class="container">
-    <div class="timeline-inner">
-      <div class="timeline-left">
-        <div class="eyebrow">Estado actual</div>
-        <h2 class="section-title" style="color:var(--white);">¿Cuándo entra<br><em style="color:var(--bordeaux-mid);">en vigencia?</em></h2>
-        <p class="section-body" style="color:rgba(255,255,255,0.45);">
-          La Ley 27.802 fue promulgada pero enfrenta un proceso judicial que suspendió provisoriamente algunos artículos. El Gobierno apeló y la reglamentación avanza en paralelo.
-        </p>
-        <a href="#cta-final" class="btn-outline" style="display:inline-block;margin-top:28px;">Prepararme ahora →</a>
-      </div>
-
-      <div class="timeline-events">
-        <div class="timeline-event">
-          <div class="timeline-date">Dic 2025</div>
-          <div class="timeline-content">
-            <span class="timeline-status done">Completado</span>
-            <div class="timeline-title">Proyecto enviado al Congreso</div>
-            <div class="timeline-desc">El PEN remitió al Senado el proyecto de Ley de Modernización Laboral (Expte. 159/25).</div>
-          </div>
-        </div>
-        <div class="timeline-event">
-          <div class="timeline-date">Mar 2026</div>
-          <div class="timeline-content">
-            <span class="timeline-status done">Completado</span>
-            <div class="timeline-title">Sanción y promulgación · Ley 27.802</div>
-            <div class="timeline-desc">La ley fue aprobada por el Senado y promulgada por el Poder Ejecutivo.</div>
-          </div>
-        </div>
-        <div class="timeline-event">
-          <div class="timeline-date">Abr 2026</div>
-          <div class="timeline-content">
-            <span class="timeline-status active">En curso</span>
-            <div class="timeline-title">Medida cautelar judicial · Apelación en trámite</div>
-            <div class="timeline-desc">Una resolución judicial suspendió 83 artículos. El Gobierno apeló. La CNV y el Ministerio de Economía continúan con la reglamentación.</div>
-          </div>
-        </div>
-        <div class="timeline-event">
-          <div class="timeline-date">Jun 2026</div>
-          <div class="timeline-content">
-            <span class="timeline-status pending">Estimado</span>
-            <div class="timeline-title">Decreto reglamentario + resoluciones</div>
-            <div class="timeline-desc">Se esperan el decreto reglamentario del PEN y resoluciones de la Secretaría de Trabajo, ARCA y CNV.</div>
-          </div>
-        </div>
-        <div class="timeline-event">
-          <div class="timeline-date">1 Jul 2026</div>
-          <div class="timeline-content">
-            <span class="timeline-status pending">Estimado</span>
-            <div class="timeline-title">Vigencia del FAL · Apertura de cuentas</div>
-            <div class="timeline-desc">Fecha establecida por la Ley 27.802 para la entrada en vigor del Fondo de Asistencia Laboral.</div>
-          </div>
-        </div>
+      <div class="cohen-card">
+        <div class="cohen-num" style="font-size:32px;line-height:1.2;">Asesor<br>dedicado</div>
+        <div class="cohen-card-title">Atención personalizada</div>
+        <div class="cohen-card-desc">No sos un número en una cola de call center. Cada empresa tiene su propio asesor Cohen que conoce tu nómina, tu perfil y tus objetivos. Ante una desvinculación, respondemos en 5 días hábiles con fondos acreditados.</div>
       </div>
     </div>
   </div>
@@ -1795,33 +1630,6 @@ footer {
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══════ SECCIÓN 9: POR QUÉ COHEN ═══════ -->
-<section id="por-que-cohen">
-  <div class="container">
-    <div class="eyebrow">Por qué Cohen</div>
-    <h2 class="section-title" style="max-width:520px;">Tu FAL administrado<br>por <em>aliados financieros.</em></h2>
-    <div class="cohen-grid">
-      <div class="cohen-card">
-        <div class="cohen-num">ALyC</div>
-        <div class="cohen-card-title">Habilitados por la CNV</div>
-        <div class="cohen-card-desc">Cohen es un Agente de Liquidación y Compensación regulado por la Comisión Nacional de Valores. Exactamente el tipo de entidad habilitada por la Ley 27.802 para administrar FALs.</div>
-      </div>
-      <div class="cohen-card">
-        <div class="cohen-num">3</div>
-        <div class="cohen-card-title">Perfiles de inversión</div>
-        <div class="cohen-card-desc">Conservador, moderado o dinámico. Elegís el perfil que se adapta al horizonte y al apetito de riesgo de tu empresa. Podés ajustarlo en cualquier momento.</div>
-      </div>
-      <div class="cohen-card">
-        <div class="cohen-num">5</div>
-        <div class="cohen-card-title">Días hábiles para cobrar</div>
-        <div class="cohen-card-desc">Ante una contingencia cubierta, la administradora debe transferir los fondos al trabajador dentro de los 5 días hábiles de recibida la declaración jurada. Rápido y sin fricciones.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══════ SECCIÓN 10: CTA FINAL ═══════ -->
 <section id="cta-final">
   <div class="container">
@@ -1840,8 +1648,7 @@ footer {
         </p>
       </div>
       <div class="cta-actions">
-        <a href="#" class="btn-white">Abrir cuenta FAL</a>
-        <a href="#" class="btn-ghost-white">Hablar con un asesor</a>
+        <a href="#" class="btn-white">Hablar con un asesor</a>
       </div>
     </div>
     <div class="cta-legal">
@@ -1918,6 +1725,8 @@ function calcular() {
 
   // RENDER
   setText('res-aporte',     fmt(aporteM));
+  setText('res-capital',    fmt(capital));
+  setText('res-capital-sub', 'Capital aportado en ' + plazo + (plazo===1?' año':' años'));
   setText('res-fondo',      fmt(fondo));
   setText('res-fondo-sub',  'Al cabo de ' + plazo + (plazo === 1 ? ' año' : ' años'));
   setText('res-rendimiento', fmt(rendim));
@@ -1934,9 +1743,9 @@ function calcular() {
   document.getElementById('cob-bar').style.width = cob + '%';
   setText('cob-pct',  cob + '%');
   setText('cob-note',
-    'Estimación sobre 8% de rotación anual y 6 sueldos de indemnización promedio. ' +
+    'Estimamos que el 8% de tu nómina rota por año y cada desvinculación cuesta 6 sueldos promedio. Con ' +
     'Con ' + fmt(fondo) + ' en el fondo cubrís aprox. ' + cob +
-    '% del pasivo contingente proyectado a ' + plazo + (plazo === 1 ? ' año.' : ' años.')
+    '% del pasivo contingente estimado a ' + plazo + (plazo === 1 ? ' año.' : ' años.')
   );
 }
 
@@ -1958,13 +1767,7 @@ function toggleFaq(btn) {
   if (!isOpen) item.classList.add('open');
 }
 
-/* ── SCROLL NAV ── */
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  nav.style.boxShadow = window.scrollY > 20
-    ? '0 1px 20px rgba(0,0,0,0.06)'
-    : 'none';
-});
+
 
 /* ── INIT ── */
 calcular();
