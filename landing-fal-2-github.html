@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAL — Fondo de Acumulación Laboral | Cohen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bordeaux: #ba2e5f;
+    --bordeaux-dark: #8a1f44;
+    --bordeaux-light: #f5e8ed;
+    --grey: #636569;
+    --grey-light: #888B8D;
+    --beige: #c1c0b8;
+    --beige-light: #f4f3f0;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --font-display: 'EB Garamond', Georgia, serif;
+    --font-body: 'Montserrat', sans-serif;
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--grey);
+    background: var(--white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ========================================
+     UTILITIES
+  ======================================== */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--bordeaux);
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.15;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--bordeaux);
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--beige);
+    border: none;
+  }
+
+  /* ========================================
+     NAVIGATION
+  ======================================== */
+  .nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--beige);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--grey-light);
+  }
+
+  .nav-breadcrumb span.active {
+    color: var(--bordeaux);
+  }
+
+  .nav-breadcrumb .sep {
+    color: var(--beige);
+  }
+
+  .nav-logo img {
+    height: 28px;
+    display: block;
+  }
+
+  .nav-cta {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+    background: var(--bordeaux);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--bordeaux-dark);
+  }
+
+  /* ========================================
+     HERO SECTION
+  ======================================== */
+  .hero {
+    padding: 72px 0 64px;
+    background: var(--white);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .hero-left .eyebrow {
+    margin-bottom: 20px;
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(32px, 5.5vw, 52px);
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--bordeaux);
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 32px;
+    max-width: 380px;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--white);
+    background: var(--bordeaux);
+    border: none;
+    padding: 14px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--bordeaux-dark);
+  }
+
+  .btn-ghost {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bordeaux);
+    background: transparent;
+    border: 1.5px solid var(--bordeaux);
+    padding: 14px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover {
+    background: var(--bordeaux);
+    color: var(--white);
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .hero-stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+
+  .hero-stat {
+    background: var(--beige-light);
+    padding: 24px;
+    border: 1px solid var(--beige);
+  }
+
+  .hero-stat-value {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .hero-stat-label {
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--grey-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    line-height: 1.4;
+  }
+
+  .hero-stat.accent-top {
+    border-top: 3px solid var(--bordeaux);
+  }
+
+  /* ========================================
+     TICKER / ALERT BAR
+  ======================================== */
+  .ticker-bar {
+    background: var(--beige-light);
+    border-top: 1px solid var(--beige);
+    border-bottom: 1px solid var(--beige);
+    padding: 10px 0;
+    overflow: hidden;
+  }
+
+  .ticker-inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--grey-light);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .ticker-label {
+    color: var(--bordeaux);
+    font-weight: 700;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .ticker-text {
+    color: var(--grey);
+    font-size: 10px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .ticker-link {
+    color: var(--bordeaux);
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    margin-left: auto;
+    flex-shrink: 0;
+    letter-spacing: 2px;
+  }
+
+  /* ========================================
+     SECTION: EL CONCEPTO
+  ======================================== */
+  .section-concepto {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .concepto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .concepto-left .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .concepto-body {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 1.8;
+    margin-bottom: 16px;
+  }
+
+  .concepto-body strong {
+    color: var(--black);
+    font-weight: 600;
+  }
+
+  .concepto-highlight {
+    background: var(--bordeaux-light);
+    border-left: 3px solid var(--bordeaux);
+    padding: 14px 18px;
+    margin-top: 20px;
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  .concepto-highlight strong {
+    color: var(--bordeaux);
+    font-weight: 700;
+  }
+
+  .concepto-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 8px;
+  }
+
+  .concepto-feature {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .concepto-feature-icon {
+    width: 8px;
+    height: 8px;
+    background: var(--bordeaux);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  .concepto-feature-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+
+  .concepto-feature-text {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.6;
+  }
+
+  /* ========================================
+     SECTION: COBERTURAS
+  ======================================== */
+  .section-coberturas {
+    padding: 80px 0;
+    background: var(--beige-light);
+    border-top: 1px solid var(--beige);
+  }
+
+  .coberturas-header {
+    margin-bottom: 48px;
+  }
+
+  .coberturas-header .section-heading {
+    margin-bottom: 0;
+  }
+
+  .coberturas-header p {
+    font-size: 13px;
+    color: var(--grey);
+    margin-top: 12px;
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  .coberturas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-bottom: 32px;
+  }
+
+  .cobertura-card {
+    background: var(--white);
+    padding: 24px;
+    border: 1px solid var(--beige);
+    position: relative;
+  }
+
+  .cobertura-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: transparent;
+  }
+
+  .cobertura-card.highlight::before {
+    background: var(--bordeaux);
+  }
+
+  .cobertura-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--bordeaux);
+    border-radius: 50%;
+    margin-bottom: 14px;
+  }
+
+  .cobertura-name {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+
+  .cobertura-desc {
+    font-size: 11px;
+    color: var(--grey-light);
+    line-height: 1.6;
+  }
+
+  .cobertura-law {
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--beige);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 12px;
+  }
+
+  .coberturas-footer-note {
+    font-size: 11px;
+    color: var(--grey-light);
+    line-height: 1.6;
+    padding: 16px;
+    border-left: 3px solid var(--beige);
+    background: var(--white);
+  }
+
+  .coberturas-footer-note strong {
+    color: var(--grey);
+    font-weight: 600;
+  }
+
+  /* ========================================
+     SECTION: TU APORTE
+  ======================================== */
+  .section-aporte {
+    padding: 80px 0;
+    background: var(--bordeaux);
+    color: var(--white);
+  }
+
+  .aporte-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .aporte-left .eyebrow {
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 16px;
+  }
+
+  .aporte-title {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+
+  .aporte-title em {
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .aporte-body {
+    font-size: 13px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .aporte-highlight-box {
+    background: rgba(0,0,0,0.15);
+    border-left: 3px solid rgba(255,255,255,0.4);
+    padding: 16px 20px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.6;
+  }
+
+  .aporte-right {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .aporte-right .eyebrow {
+    color: rgba(255,255,255,0.5);
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  .aporte-tier {
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 20px 24px;
+  }
+
+  .aporte-tier-label {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 8px;
+  }
+
+  .aporte-tier-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 6px;
+  }
+
+  .aporte-tier-range {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .aporte-tier-desc {
+    font-size: 11px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ========================================
+     SECTION: ALIADOS FINANCIEROS
+  ======================================== */
+  .section-aliados {
+    padding: 80px 0;
+    background: var(--white);
+  }
+
+  .aliados-header {
+    margin-bottom: 48px;
+  }
+
+  .aliados-header .section-heading {
+    margin-bottom: 0;
+  }
+
+  .aliados-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .aliado-card {
+    background: var(--beige-light);
+    border: 1px solid var(--beige);
+    padding: 32px 24px;
+    position: relative;
+  }
+
+  .aliado-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--bordeaux);
+  }
+
+  .aliado-card-eyebrow {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bordeaux);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .aliado-card-title {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .aliado-card-title em {
+    font-style: italic;
+    color: var(--bordeaux);
+  }
+
+  .aliado-card-text {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.65;
+  }
+
+  /* ========================================
+     SECTION: FAQ
+  ======================================== */
+  .section-faq {
+    padding: 80px 0;
+    background: var(--beige-light);
+    border-top: 1px solid var(--beige);
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+  }
+
+  .faq-left .section-heading {
+    margin-bottom: 24px;
+  }
+
+  .faq-left p {
+    font-size: 13px;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-bottom: 28px;
+  }
+
+  .faq-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--beige);
+    padding: 20px 0;
+  }
+
+  .faq-item:first-child {
+    border-top: 1px solid var(--beige);
+  }
+
+  .faq-question {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--black);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    line-height: 1.5;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 18px;
+    color: var(--bordeaux);
+    font-weight: 400;
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: -2px;
+  }
+
+  .faq-answer {
+    font-size: 12px;
+    color: var(--grey);
+    line-height: 1.7;
+    margin-top: 12px;
+    display: none;
+  }
+
+  .faq-item.open .faq-question::after {
+    content: '−';
+  }
+
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+
+  /* ========================================
+     SECTION: CTA FINAL
+  ======================================== */
+  .section-cta {
+    padding: 64px 0;
+    background: var(--bordeaux-dark);
+    text-align: left;
+  }
+
+  .cta-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+
+  .cta-text-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .cta-title {
+    font-family: var(--font-display);
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 400;
+    color: var(--white);
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .cta-subtitle {
+    font-size: 12px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    max-width: 400px;
+  }
+
+  .cta-btn {
+    font-family: var(--font-body);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--bordeaux-dark);
+    background: var(--white);
+    border: none;
+    padding: 16px 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  .cta-btn:hover {
+    background: var(--beige-light);
+  }
+
+  /* ========================================
+     FOOTER
+  ======================================== */
+  .footer {
+    background: var(--black);
+    padding: 32px 0;
+    border-top: 3px solid var(--bordeaux);
+  }
+
+  .footer-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  .footer-logo img {
+    height: 22px;
+    opacity: 0.7;
+    filter: brightness(10);
+    display: block;
+  }
+
+  .footer-legal {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+  }
+
+  .footer-links a {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--bordeaux);
+  }
+
+  /* ========================================
+     RESPONSIVE
+  ======================================== */
+  @media (max-width: 768px) {
+    .hero-grid,
+    .concepto-grid,
+    .aporte-grid,
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .coberturas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .aliados-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-inner {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 48px 0 40px;
+    }
+
+    .hero-stats-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .coberturas-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .nav-breadcrumb {
+      display: none;
+    }
+
+    .section-concepto,
+    .section-coberturas,
+    .section-aporte,
+    .section-aliados,
+    .section-faq {
+      padding: 56px 0;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero-stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      text-align: center;
+    }
+
+    .aporte-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-breadcrumb">
+        <span>Productos</span>
+        <span class="sep">/</span>
+        <span class="active">Indemnización Laboral</span>
+      </div>
+      <div class="nav-logo">
+        <img src="assets/Logo_Cohen_horizontal_transparente.png" alt="Cohen">
+      </div>
+      <a href="#contacto" class="nav-cta">Hablá con un asesor</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <span class="eyebrow">FAL — Indemnización Laboral</span>
+        <h1 class="hero-title">
+          El fondo que<br>
+          ayuda a financiar<br>
+          las <em>indemnizaciones</em><br>
+          con costo cero.
+        </h1>
+        <p class="hero-subtitle">
+          El Fondo de Acumulación Laboral (FAL) es un instrumento exclusivo de capitalización que permite a las empresas y empleadores autofinanciar el pago de indemnizaciones para la liquidación del cese laboral.
+        </p>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn-primary">Conocé tu fondo</a>
+          <a href="#concepto" class="btn-ghost">¿Cómo funciona?</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="hero-stats-grid">
+          <div class="hero-stat accent-top">
+            <div class="hero-stat-value">2,5%</div>
+            <div class="hero-stat-label">Del salario bruto<br>mensual aportado</div>
+          </div>
+          <div class="hero-stat accent-top">
+            <div class="hero-stat-value">1%</div>
+            <div class="hero-stat-label">Costo de<br>administración</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">$0</div>
+            <div class="hero-stat-label">Costo de ingreso<br>al fondo</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-value">Jul 2026</div>
+            <div class="hero-stat-label">Próxima ventana<br>de liquidación</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="container">
+    <div class="ticker-inner">
+      <span class="ticker-label">Rendimiento histórico</span>
+      <span class="ticker-text">El FAL históricamente ha superado el rendimiento del plazo fijo, protegiendo el capital del empleador contra la inflación</span>
+      <a href="#rendimientos" class="ticker-link">Ver rendimientos →</a>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: EL CONCEPTO -->
+<section class="section-concepto" id="concepto">
+  <div class="container">
+    <div class="concepto-grid">
+      <div class="concepto-left">
+        <span class="eyebrow">El concepto</span>
+        <h2 class="section-heading">Un colchón para el<br><em>cese laboral.</em></h2>
+        <p class="concepto-body">
+          Miles de empresas argentinas cargan con endeudamientos en el intento de cubrir el pago de una indemnización frente a un escenario de despido o desvinculación del empleado.
+        </p>
+        <p class="concepto-body">
+          El FAL, construye logra acumular esos montos de manera eficiente, invirtiéndolos en un activo libre de riesgo al plazo de acumulación en el Fondo de Inversión Común, administrados por entidades habilitadas por la CNV. En el mismo son elegibles todos los empleados bajo Ley de Contrato de Trabajo.
+        </p>
+        <p class="concepto-body">
+          Tu primera pregunta: <strong>el costo neto en cero</strong>, porque el aporte lo realiza el empleado al 50%. La empresa co-invierte junto al empleado.
+        </p>
+        <div class="concepto-highlight">
+          <strong>Importante:</strong> el FAL no reemplaza y es independiente de la ART, vacaciones, bonos, garantías reales u otros conceptos laborales.
+        </div>
+      </div>
+
+      <div class="concepto-right">
+        <div class="concepto-feature">
+          <div class="concepto-feature-icon"></div>
+          <div>
+            <div class="concepto-feature-title">Patrimonio Separado</div>
+            <p class="concepto-feature-text">Los fondos aportados por las empresas permanecen separados, nominados para cada empleado según su antigüedad y cargo.</p>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="concepto-feature">
+          <div class="concepto-feature-icon"></div>
+          <div>
+            <div class="concepto-feature-title">Capitalización Mensual</div>
+            <p class="concepto-feature-text">Cada mes los aportes se reinvierten automáticamente, capitalizando sobre los rendimientos acumulados anteriores.</p>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="concepto-feature">
+          <div class="concepto-feature-icon"></div>
+          <div>
+            <div class="concepto-feature-title">Rendimientos en Fondos</div>
+            <p class="concepto-feature-text">El FAL se construye sobre Fondos Comunes de Inversión que históricamente generan mayores retornos que instrumentos bancarios tradicionales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: COBERTURAS -->
+<section class="section-coberturas" id="coberturas">
+  <div class="container">
+    <div class="coberturas-header">
+      <span class="eyebrow">Coberturas</span>
+      <h2 class="section-heading">No solo para despidos.<br><em>Cubre casi todo.</em></h2>
+      <p>El FAL fue diseñado para cubrir prácticamente todos los escenarios de desvinculación dentro de la Ley de Contrato de Trabajo y condiciones especiales, no únicamente el despido sin causa.</p>
+    </div>
+
+    <div class="coberturas-grid">
+      <div class="cobertura-card highlight">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Despido sin justa causa</div>
+        <p class="cobertura-desc">Indemnización por antigüedad, preaviso y SAC sobre preaviso.</p>
+        <div class="cobertura-law">Art. 245 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Renuncia e integración</div>
+        <p class="cobertura-desc">Monto proporcional según convenio y tiempo de servicio acumulado.</p>
+        <div class="cobertura-law">Art. 231 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Acuerdo disolutorio y cierre</div>
+        <p class="cobertura-desc">Cobertura para retiro acordado, jubilación forzada y cierre de empresa.</p>
+        <div class="cobertura-law">Art. 241 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Causas mayores de trabajo</div>
+        <p class="cobertura-desc">Fuerza mayor, quiebra declarada y reducción de dotación habilitada.</p>
+        <div class="cobertura-law">Art. 247 — Parcialmente cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Accidentes indirectos</div>
+        <p class="cobertura-desc">Cuando la desvinculación se origina en enfermedad o accidente laboral.</p>
+        <div class="cobertura-law">Art. 213 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Convenios e industria CNA</div>
+        <p class="cobertura-desc">Gastronomía, construcción, obra civil y actividades reguladas.</p>
+        <div class="cobertura-law">Según convenio — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Fallecimiento del trabajador</div>
+        <p class="cobertura-desc">Los causahabientes reciben el saldo acumulado nominado al empleado.</p>
+        <div class="cobertura-law">Art. 248 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Accidente de movilidad cero</div>
+        <p class="cobertura-desc">Incapacidad total permanente con imposibilidad de continuar tareas.</p>
+        <div class="cobertura-law">Art. 212 — Cubierto</div>
+      </div>
+      <div class="cobertura-card">
+        <div class="cobertura-dot"></div>
+        <div class="cobertura-name">Situaciones profesionales</div>
+        <p class="cobertura-desc">Matrícula profesional, habilitaciones técnicas y personal especializado.</p>
+        <div class="cobertura-law">Régimen especial — Consultar</div>
+      </div>
+    </div>
+
+    <div class="coberturas-footer-note">
+      <strong>Importante:</strong> accidente e incapacidades parciales pueden requerir evaluación adicional. El FAL no sustituye a la ART ni a los beneficios de salud. En casos de desvinculación con causa, la cobertura puede ser limitada. Siempre consultar con asesores.
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: TU APORTE -->
+<section class="section-aporte" id="aporte">
+  <div class="container">
+    <div class="aporte-grid">
+      <div class="aporte-left">
+        <span class="eyebrow">Los números</span>
+        <h2 class="aporte-title">Tu aporte mensual,</h2>
+        <p class="aporte-body">
+          La base de cálculo del FAL se fija en el salario bruto que cada empresa destina mensualmente al fondo por cada empleado al 50%. La fórmula base: el empleado aporta el mismo monto que la empresa aporta, lo que significa que el fondo se construye con co-inversión.
+        </p>
+        <div class="aporte-highlight-box">
+          Los aportes se realizan mensualmente y son acreditados directamente al Fondo de Acumulación Laboral. Tu empresa puede revisar el saldo en el informe mensual en el Portal de Inversores habitual. Tu empresa también puede delegar la operatoria.
+        </div>
+      </div>
+
+      <div class="aporte-right">
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,0.5); font-size:9px; letter-spacing:2px; margin-bottom:12px; display:block;">PYME · MICRO, PEQUEÑA Y MEDIANA EMPRESA</span>
+          <div class="aporte-tier">
+            <div class="aporte-tier-label">Aporte mensual máximo</div>
+            <div class="aporte-tier-title">Hasta 5 empleados</div>
+            <div class="aporte-tier-range">Desde 2,5% del salario bruto</div>
+            <div class="aporte-tier-desc">Aplicable por empleado, con tope según escala salarial del convenio colectivo correspondiente</div>
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,0.5); font-size:9px; letter-spacing:2px; margin-bottom:12px; display:block; margin-top:20px;">GRAN EMPRESA · MAYOR DEL SECTOR PRIVADO</span>
+          <div class="aporte-tier">
+            <div class="aporte-tier-label">Aporte mensual máximo</div>
+            <div class="aporte-tier-title">Desde 6 empleados</div>
+            <div class="aporte-tier-range">Desde 2,5% del salario bruto</div>
+            <div class="aporte-tier-desc">Con opciones de aporte adicional voluntario por parte del empleado sin impacto en el beneficio de la empresa</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: ALIADOS FINANCIEROS -->
+<section class="section-aliados" id="aliados">
+  <div class="container">
+    <div class="aliados-header">
+      <span class="eyebrow">Por qué Cohen</span>
+      <h2 class="section-heading">Tu FAL administrado<br>por <em>aliados financieros.</em></h2>
+    </div>
+
+    <div class="aliados-grid">
+      <div class="aliado-card">
+        <span class="aliado-card-eyebrow">Regulación y supervisión</span>
+        <h3 class="aliado-card-title">Habilitados<br>por la CNV.<br><em>Cohen S.A., A.Ly.C. ante la resolución.</em></h3>
+        <p class="aliado-card-text">
+          Cohen opera como Agente de Liquidación y Compensación registrado ante la Comisión Nacional de Valores, bajo estrictos estándares de transparencia, solvencia y custodia de activos de terceros.
+        </p>
+      </div>
+
+      <div class="aliado-card">
+        <span class="aliado-card-eyebrow">Tecnología y datos</span>
+        <h3 class="aliado-card-title">Inteligencia<br>financiera<br><em>más que un sistema.</em></h3>
+        <p class="aliado-card-text">
+          Nuestro portal de inversores permite el seguimiento en tiempo real de los aportes, rendimientos acumulados y estados de cuenta de cada empleado inscripto en el fondo, con exportación contable.
+        </p>
+      </div>
+
+      <div class="aliado-card">
+        <span class="aliado-card-eyebrow">Servicio al cliente</span>
+        <h3 class="aliado-card-title">Asesor<br>dedicado.<br><em>Atención personalizada.</em></h3>
+        <p class="aliado-card-text">
+          Cada empresa que opera con Cohen tiene asignado un asesor patrimonial exclusivo que acompaña en la administración mensual, liquidaciones y análisis de escenarios de egreso del fondo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: FAQ -->
+<section class="section-faq" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div class="faq-left">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2 class="section-heading">Todo lo que<br>necesitás <em>saber.</em></h2>
+        <p>
+          Si tenés dudas sobre cómo funciona el FAL, sus condiciones y cómo impacta en tu empresa, te ayudamos a resolver las preguntas más comunes.
+        </p>
+        <a href="#contacto" class="btn-primary">Hablar con un asesor</a>
+      </div>
+
+      <div class="faq-right">
+        <div class="faq-item open">
+          <div class="faq-question" onclick="toggleFaq(this)">¿Para qué le sirve el fondo a mi empresa para pagar la indemnización?</div>
+          <div class="faq-answer">
+            El FAL acumula mensualmente los aportes de empresa y empleado en un fondo de inversión que capitaliza con rendimientos. Al momento de una desvinculación, el saldo acumulado puede aplicarse directamente al pago de la indemnización, reduciendo o eliminando la necesidad de financiamiento externo de emergencia.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">¿Cuándo se puede acceder a los fondos acumulados?</div>
+          <div class="faq-answer">
+            Los fondos son accesibles en cualquier momento de desvinculación del empleado. Existen ventanas de liquidación semestrales para ajustes parciales. El saldo está disponible de forma inmediata ante un evento laboral cubierto.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">¿Qué pasa si el empleado renuncia o se va solo?</div>
+          <div class="faq-answer">
+            Si el empleado renuncia voluntariamente, el saldo acumulado puede transferirse al nuevo empleador o retirarse bajo las condiciones del reglamento del fondo, según el tiempo de permanencia y el convenio colectivo aplicable.
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">¿Cuándo empieza a cobrar el empleado si se va solo?</div>
+          <div class="faq-answer">
+            En caso de renuncia, el empleado puede acceder a su parte del saldo acumulado una vez cumplido el período de preaviso legal correspondiente y conforme a los plazos de liquidación del fondo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION: CTA FINAL -->
+<section class="section-cta" id="contacto">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <span class="cta-text-eyebrow">Próximo paso</span>
+        <h2 class="cta-title">Tu empresa ya debería<br>estar preparándose.</h2>
+        <p class="cta-subtitle">Contamos con asesores disponibles para diseñar el esquema de FAL que mejor se adapta a la estructura y dotación de tu empresa.</p>
+      </div>
+      <a href="mailto:fal@cohen.com.ar" class="cta-btn">Hablar con un asesor</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="assets/Logo_Cohen_horizontal_transparente.png" alt="Cohen">
+      </div>
+      <div class="footer-legal">
+        Cohen S.A. — Agente de Liquidación y Compensación — CNV N° XXXX<br>
+        © 2025 Cohen S.A. Todos los derechos reservados. Inversiones sujetas a riesgo de mercado.
+      </div>
+      <div class="footer-links">
+        <a href="#">Legal</a>
+        <a href="#">Privacidad</a>
+        <a href="#">CNV</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
